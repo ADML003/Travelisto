@@ -1,9 +1,26 @@
+# .DS_Store
+# /node_modules/
+
+# # React Router
+# /.react-router/
+# /build/
+
+# .env.*
+# .env.local
+
+
+# macOS system files
 .DS_Store
+
+# Node modules
 /node_modules/
 
-# React Router
-/.react-router/
+# React build files
 /build/
 
-.env.*
+# React Router (only if used)
+/.react-router/
+
+# Environment files
+.env*
 .env.local
