@@ -1,0 +1,254 @@
+
+
+
+
+.e-badge {
+  background: var(--color-sf-content-bg-color-alt1);
+  border-color: transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 0 2px transparent;
+          box-shadow: 0 0 0 2px transparent;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: var(--color-sf-content-text-color-alt1);
+  display: inline-block;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", arial, "Noto Sans", "Liberation Sans", sans-serif, "apple color emoji", "Segoe UI emoji", "Segoe UI Symbol", "Noto color emoji";
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 16px;
+  padding: 3px 4px;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0;
+  vertical-align: middle;
+}
+.e-badge:hover {
+  text-decoration: none;
+}
+.e-badge.e-badge-pill {
+  border-radius: 20px;
+}
+.e-badge.e-badge-notification {
+  border-radius: 10px;
+  height: 18px;
+  line-height: 16px;
+  min-width: 32px;
+  padding: 0 10px;
+  width: auto;
+  font-size: 12px;
+  position: absolute;
+  top: -10px;
+  left: 100%;
+}
+.e-badge.e-badge-notification.e-badge-ghost {
+  line-height: 16px;
+}
+.e-badge.e-badge-circle {
+  border-radius: 20px;
+  height: 20px;
+  line-height: 16px;
+  min-width: 0;
+  padding: 1px 3px 4px 3px;
+  width: 20px;
+}
+.e-badge.e-badge-circle.e-badge-ghost {
+  line-height: 16px;
+}
+.e-badge.e-badge-overlap {
+  position: absolute;
+  top: -10px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.e-badge.e-badge-dot {
+  border-radius: 10px;
+  height: 12px;
+  line-height: 16px;
+  min-width: 0;
+  padding: 0;
+  width: 12px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin: 0;
+  overflow: visible;
+  position: absolute;
+  top: -3px;
+  left: 100%;
+}
+.e-badge.e-badge-bottom.e-badge-dot {
+  position: absolute;
+  top: auto;
+  bottom: 3px;
+}
+.e-badge.e-badge-bottom.e-badge-notification {
+  position: absolute;
+  top: auto;
+  bottom: -3px;
+}
+button .e-badge {
+  line-height: 0.9;
+  position: relative;
+  top: -2px;
+}
+button .e-badge.e-badge-circle {
+  height: 20px;
+  line-height: 16px;
+  width: 20px;
+}
+button .e-badge.e-badge-circle.e-badge-ghost {
+  line-height: 16px;
+}
+
+.e-badge.e-badge-primary:not(.e-badge-ghost):not([href]), .e-badge.e-badge-primary[href]:not(.e-badge-ghost) {
+  background-color: var(--color-sf-primary);
+  color: var(--color-sf-primary-text-color);
+}
+.e-badge.e-badge-secondary:not(.e-badge-ghost):not([href]), .e-badge.e-badge-secondary[href]:not(.e-badge-ghost) {
+  background-color: var(--color-sf-secondary-bg-color);
+  color: var(--color-sf-secondary-text-color);
+  background-color: var(--color-sf-secondary-bg-color);
+  border: 1px solid var(--color-sf-secondary-border-color);
+  color: var(--color-sf-secondary-text-color);
+}
+.e-badge.e-badge-success:not(.e-badge-ghost):not([href]), .e-badge.e-badge-success[href]:not(.e-badge-ghost) {
+  background-color: var(--color-sf-success);
+  color: var(--color-sf-success-text);
+}
+.e-badge.e-badge-danger:not(.e-badge-ghost):not([href]), .e-badge.e-badge-danger[href]:not(.e-badge-ghost) {
+  background-color: var(--color-sf-danger);
+  color: var(--color-sf-danger-text);
+}
+.e-badge.e-badge-warning:not(.e-badge-ghost):not([href]), .e-badge.e-badge-warning[href]:not(.e-badge-ghost) {
+  background-color: var(--color-sf-warning);
+  color: var(--color-sf-warning-text);
+}
+.e-badge.e-badge-info:not(.e-badge-ghost):not([href]), .e-badge.e-badge-info[href]:not(.e-badge-ghost) {
+  background-color: var(--color-sf-info);
+  color: var(--color-sf-info-text);
+}
+.e-badge.e-badge-light:not(.e-badge-ghost):not([href]), .e-badge.e-badge-light[href]:not(.e-badge-ghost) {
+  background-color: var(--color-sf-badge-light-bg-color);
+  color: var(--color-sf-content-text-color-alt1);
+}
+.e-badge.e-badge-dark:not(.e-badge-ghost):not([href]), .e-badge.e-badge-dark[href]:not(.e-badge-ghost) {
+  background-color: var(--color-sf-badge-dark-bg-color);
+  color: var(--color-sf-secondary-text-color);
+  background-color: var(--color-sf-content-text-color-alt3);
+  color: var(--color-sf-content-bg-color-alt1);
+}
+.e-badge.e-badge-primary[href]:not(.e-badge-ghost):hover {
+  background-color: var(--color-sf-badge-primary-bg-color-darken);
+}
+.e-badge.e-badge-secondary[href]:not(.e-badge-ghost):hover {
+  background-color: var(--color-sf-badge-primary-bg-color-darken);
+}
+.e-badge.e-badge-success[href]:not(.e-badge-ghost):hover {
+  background-color: var(--color-sf-badge-primary-bg-color-darken);
+}
+.e-badge.e-badge-danger[href]:not(.e-badge-ghost):hover {
+  background-color: var(--color-sf-badge-primary-bg-color-darken);
+}
+.e-badge.e-badge-warning[href]:not(.e-badge-ghost):hover {
+  background-color: var(--color-sf-badge-primary-bg-color-darken);
+}
+.e-badge.e-badge-info[href]:not(.e-badge-ghost):hover {
+  background-color: var(--color-sf-badge-primary-bg-color-darken);
+}
+.e-badge.e-badge-light[href]:not(.e-badge-ghost):hover {
+  background-color: var(--color-sf-badge-primary-bg-color-darken);
+}
+.e-badge.e-badge-dark[href]:not(.e-badge-ghost):hover {
+  background-color: var(--color-sf-badge-primary-bg-color-darken);
+}
+.e-badge.e-badge-ghost.e-badge-primary {
+  background-color: transparent;
+  border: 1px solid var(--color-sf-primary);
+  color: var(--color-sf-primary);
+}
+.e-badge.e-badge-ghost.e-badge-secondary {
+  background-color: transparent;
+  border: 1px solid var(--color-sf-secondary-border-color);
+  color: var(--color-sf-secondary-text-color);
+}
+.e-badge.e-badge-ghost.e-badge-success {
+  background-color: transparent;
+  border: 1px solid var(--color-sf-success);
+  color: var(--color-sf-success);
+}
+.e-badge.e-badge-ghost.e-badge-danger {
+  background-color: transparent;
+  border: 1px solid var(--color-sf-danger);
+  color: var(--color-sf-danger);
+}
+.e-badge.e-badge-ghost.e-badge-warning {
+  background-color: transparent;
+  border: 1px solid var(--color-sf-warning);
+  color: var(--color-sf-warning);
+}
+.e-badge.e-badge-ghost.e-badge-info {
+  background-color: transparent;
+  border: 1px solid var(--color-sf-info);
+  color: var(--color-sf-info);
+}
+.e-badge.e-badge-ghost.e-badge-light {
+  background-color: transparent;
+  border: 1px solid var(--color-sf-secondary-border-color);
+  color: var(--color-sf-secondary-text-color);
+}
+.e-badge.e-badge-ghost.e-badge-dark {
+  background-color: transparent;
+  border: 1px solid var(--color-sf-badge-dark-bg-color);
+  color: var(--color-sf-badge-dark-bg-color);
+  border: 1px solid var(--color-sf-content-text-color-alt3);
+  color: var(--color-sf-content-text-color-alt3);
+}
+
+.e-bigger .e-badge,
+.e-badge.e-bigger {
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  height: 24px;
+  line-height: 16px;
+  padding: 2px 3px;
+}
+.e-bigger .e-badge.e-badge-pill,
+.e-badge.e-bigger.e-badge-pill {
+  border-radius: 20px;
+  padding: 3px 8px;
+}
+.e-bigger .e-badge.e-badge-ghost,
+.e-badge.e-bigger.e-badge-ghost {
+  padding: 3px;
+}
+.e-bigger .e-badge.e-badge-ghost.e-badge-circle,
+.e-badge.e-bigger.e-badge-ghost.e-badge-circle {
+  padding: 3px;
+}
+.e-bigger .e-badge.e-badge-ghost.e-badge-notification,
+.e-badge.e-bigger.e-badge-ghost.e-badge-notification {
+  padding: 3px 10px;
+}
+.e-bigger .e-badge.e-badge-notification,
+.e-badge.e-bigger.e-badge-notification {
+  border-radius: 20px;
+  min-width: 30px;
+  padding: 3px 8px;
+}
+.e-bigger .e-badge.e-badge-circle,
+.e-badge.e-bigger.e-badge-circle {
+  border-radius: 20px;
+  min-width: 0;
+  padding: 4px 3px;
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  padding: 4px 3px;
+}
+.e-bigger .e-badge.e-badge-dot,
+.e-badge.e-bigger.e-badge-dot {
+  border-radius: 10px;
+  height: 14px;
+  width: 14px;
+}

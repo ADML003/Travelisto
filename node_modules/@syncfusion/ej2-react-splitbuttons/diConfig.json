@@ -1,0 +1,164 @@
+{
+    "name": "SplitButtons",
+    "description": "SplitButton Components",
+    "keywords": {
+        "common": ["ej2", "ej2-splitbuttons", "syncfusion", "ej2 splitbutton", "ej2 dropdownbutton", "ej2 buttongroup", "ej2 progress button", "split button", "splitbutton", "dropdown", "dropdown button", "drop-down button", "dropdownbutton", "dropdown popup", "button group", "buttongroup", "group button", "progress button", "spin button", "animation button", "progress", "spinner", "progress indicator"],
+        "angular": ["angular", "ng", "ej2-ng-splitbuttons", "ng-splitbutton", "ng-dropdownbutton", "ng progress button", "angular progress button", "ng spin button", "angular spin button", "ng progress", "angular progress", "ng progress indicator", "angular progress indicator", "ng spinner", "angular spinner"],
+        "react": ["react", "reactjs", "ej2-react-splitbuttons", "react-splitbutton", "react-dropdownbutton", "react progress button", "react spin button", "react progress", "react progress indicator", "react spinner"],
+        "vue": ["vue", "vuejs", "ej2-vue-splitbuttons", "vue-splitbutton", "vue-dropdownbutton", "vue progress button", "vue spin button", "vue progress", "vue spinner", "vue progress indicator"]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/syncfusion/ej2-ng-splitbuttons"
+    },
+    "eventInterfaces": ["MenuEventArgs", "BeforeOpenCloseMenuEventArgs", "OpenCloseMenuEventArgs", "ProgressEventArgs", "ClickEventArgs"],
+    "components": [
+        {
+            "baseClass": "DropDownButton",
+            "directoryName": "drop-down-button",
+            "type": "container",
+            "defaultTag": "<button id='dropdownbutton'></button>",
+            "selector": "[ejs-dropdownbutton]",
+            "preferredTag": "button",
+            "blazorPlaceholder": "dropdownbutton",
+            "blazorType": "native",
+            "blazorDependency": [
+                "ej2-base",
+                "ej2-popups/popup",
+                "../blazor/sf-drop-down-button"
+            ],
+            "tagDirective": [
+                {
+                    "directiveClassName": "DropDownButtonItem",
+                    "arrayDirectiveClassName": "DropDownButtonItems",
+                    "isBlazorOnly": true,
+                    "propertyName": "items",
+                    "baseClass": "Item",
+                    "blazorClassName": "DropDownButtonItem",
+                    "blazorArrayClassName": "DropDownButtonItems"
+                }
+            ],
+            "comment": [
+                "/**",
+                " * Represents the Angular DropDownButton Component.",
+                " * ```html",
+                " * <button ejs-dropdownbutton>DropDownButton</button>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * `DropDownButtonComponent` represents the react DropDownButton Component.",
+                " * ```ts",
+                " * <DropDownButtonComponent content='DropDownButton'></DropDownButtonComponent>",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the Essential JS 2 VueJS DropDownButton Component",
+                " * ```html",
+                " * <ejs-dropdownbutton>DropDownButton</ejs-dropdownbutton>",
+                " * ```",
+                " */"
+            ]
+        },
+        {
+            "baseClass": "SplitButton",
+            "directoryName": "split-button",
+            "type": "container",
+            "defaultTag": "<button id='splitbutton'></button>",
+            "preferredTag": "button",
+            "blazorPlaceholder": "splitbutton",
+            "blazorType": "native",
+            "blazorDependency": [
+                "ej2-base",
+                "ej2-popups/popup",
+                "../blazor/sf-drop-down-button"
+            ],
+            "tagDirective": [
+                {
+                    "directiveClassName": "SplitButtonItem",
+					"arrayDirectiveClassName": "SplitButtonItems",
+                    "isBlazorOnly": true,
+                    "propertyName": "items",
+                    "baseClass": "Item",
+                    "blazorClassName": "SplitButtonItem",
+                    "blazorArrayClassName": "SplitButtonItems"
+                }
+            ],
+            "comment": [
+                "/**",
+                " * Represents the Angular SplitButton Component.",
+                " * ```html",
+                " * <ejs-splitbutton content='Split Button'></ejs-splitbutton>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * `SplitButtonComponent` represents the react SplitButton Component.",
+                " * ```ts",
+                " * <SplitButtonComponent content='Split Button'></SplitButtonComponent>",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the Essential JS 2 VueJS SplitButton Component",
+                " * ```html",
+                " * <ejs-splitbutton content='Split Button'></ejs-splitbutton>",
+                " * ```",
+                " */"
+            ]
+        },
+        {
+            "baseClass": "ProgressButton",
+            "directoryName": "progress-button",
+            "type": "container",
+            "defaultTag": "<button id='progressbutton'></button>",
+            "selector": "[ejs-progressbutton]",
+            "preferredTag": "button",
+            "blazorPlaceholder": "progressbutton",
+            "blazorType": "native",
+            "blazorDependency": [
+                "ej2-base",
+                "ej2-popups/blazor/Spinner"
+            ],
+            "comment": [
+                "/**",
+                " * Represents the Angular ProgressButton Component.",
+                " * ```html",
+                " * <button ejs-progressbutton content='Progress Button'></button>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * `ProgressButtonComponent` represents the react ProgressButton Component.",
+                " * ```ts",
+                " * <ProgressButtonComponent content='Progress Button'></ProgressButtonComponent>",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the Essential JS 2 VueJS ProgressButton Component",
+                " * ```html",
+                " * <ejs-progressbutton content='Progress Button'></ejs-progressbutton>",
+                " * ```",
+                " */"
+            ],
+            "complexDirective": [
+                {
+                    "baseClass": "SpinSettings",
+                    "propertyName": "spinSettings"
+                },
+                {
+                    "baseClass": "AnimationSettings",
+                    "propertyName": "animationSettings"
+                }
+            ]
+        }
+    ]
+}

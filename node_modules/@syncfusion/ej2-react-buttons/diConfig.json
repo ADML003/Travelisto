@@ -1,0 +1,430 @@
+{
+    "name": "Buttons",
+    "description": "Button Components",
+    "keywords": {
+        "common": ["ej2", "syncfusion", "ej2-buttons", "button", "ej2 button", "checkbox", "ej2 checkbox", "checkboxes", "radio button", "radiobutton", "radiobuttons", "ej2 radiobutton", "switch", "ej2 switch",  "primary button", "flat button", "round button", "icon button", "togglebutton", "toggle button", "form control", "form controls", "input", "fab", "floating button", "floating action button" , "speeddial", "floating menu", "smart paste", "smartpaste", "smart paste button", "smartpaste button"],
+        "angular": ["angular", "ng", "ej2-ng-buttons", "ng-button", "ng-checkbox", "ng-radiobutton", "ng-switch", "ng-fab", "angular-fab", "ng-speeddial", "angular-speeddial", "ng-smartpaste", "angular-smartpaste"],
+        "react": ["react", "reactjs", "ej2-react-buttons", "react-button", "react-checkbox", "react-radiobutton", "react-switch" ,"react-fab", "react-speeddial", "react-smartpaste"],
+        "vue": ["vue", "vuejs", "ej2-vue-buttons", "vue-button", "vue-checkbox", "vue-radiobutton", "vue-switch", "vue-fab", "vue-speeddial", "vue-smartpaste"]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/syncfusion/ej2-ng-buttons"
+    },
+    "eventInterfaces": ["ChangeEventArgs", "ClickEventArgs", "DeleteEventArgs", "ChangeArgs", "SpeedDialItemEventArgs", "SpeedDialBeforeOpenCloseEventArgs", "SpeedDialOpenCloseEventArgs"],
+    "components": [
+        {
+            "baseClass": "Button",
+            "directoryName": "button",
+            "type": "container",
+            "defaultTag": "<button id='button'></button>",
+            "selector": "[ejs-button]",
+            "preferredTag": "button",
+            "blazorPlaceholder": "button",
+			"blazorType": "native",
+            "comment": [
+                "/**",
+                " * Represents the Angular Button Component.",
+                " * ```html",
+                " * <button ejs-button>Button</button>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * `ButtonComponent` represents the react Button Component.",
+                " * ```ts",
+                " * <ButtonComponent></ButtonComponent>",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the Essential JS 2 VueJS Button Component",
+                " * ```html",
+                " * <ejs-button>Button</ejs-button>",
+                " * ```",
+                " */"
+            ]
+        },
+        {
+            "baseClass": "CheckBox",
+            "directoryName": "check-box",
+            "type": "form",
+            "defaultTag": "<input id='checkbox' type='checkbox'/>",
+            "preferredTag": "input",
+            "twoWays": [
+                "checked",
+                "indeterminate"
+            ],
+            "blazorPlaceholder": "checkbox",
+			"blazorType": "native",
+            "comment": [
+                "/**",
+                " * Represents the Angular CheckBox Component.",
+                " * ```html",
+                " * <ejs-checkbox label='Default'></ejs-checkbox>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * Represents the react CheckBox Component.",
+                " * ```ts",
+                " * <CheckBoxComponent label='Default'></CheckBoxComponent>",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the Essential JS 2 VueJS CheckBox Component",
+                " * ```html",
+                " * <ejs-checkbox label='Default'></ejs-checkbox>",
+                " * ```",
+                " */"
+            ]
+        },
+        {
+            "baseClass": "RadioButton",
+            "directoryName": "radio-button",
+            "type": "form",
+            "defaultTag": "<input id='radio' type='radio'/>",
+            "preferredTag": "input",
+            "blazorPlaceholder": "radiobutton",
+			"blazorType": "native",
+            "twoWays": [
+                "value"
+            ],
+            "comment": [
+                "/**",
+                " * Represents the Angular RadioButton Component.",
+                " * ```html",
+                " * <ejs-radiobutton label='Default'></ejs-radiobutton>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * Represents the react RadioButton Component.",
+                " * ```ts",
+                " * <RadioButtonComponent label='Default'></RadioButtonComponent>",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the Essential JS 2 VueJS RadioButton Component",
+                " * ```html",
+                " * <ejs-radiobutton label='Default'></ejs-radiobutton>",
+                " * ```",
+                " */"
+            ]
+        },
+        {
+            "baseClass": "Switch",
+            "directoryName": "switch",
+            "defaultTag": "<input id='switch' type='checkbox'/>",
+            "preferredTag": "input",
+            "twoWays": [
+                "checked"
+            ],
+            "type": "form",
+            "blazorPlaceholder": "switch",
+			"blazorType": "native",
+            "comment": [
+                "/**",
+                " * Represents the Angular Switch Component.",
+                " * ```html",
+                " * <ejs-switch></ejs-switch>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * Represents the react Switch Component.",
+                " * ```ts",
+                " * <SwitchComponent></SwitchComponent>",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the Essential JS 2 VueJS Switch Component.",
+                " * ```html",
+                " * <ejs-switch></ejs-switch>",
+                " * ```",
+                " */"
+            ]
+        },
+        {
+            "baseClass": "ChipList",
+            "directoryName": "chips",
+            "defaultTag": "<div id='chip'></div>",
+            "preferredTag": "div",
+            "twoWays": [
+            ],
+            "type": "simple",
+            "blazorPlaceholder": "chip-list",
+            "blazorType": "hybrid",
+            "comment": [
+                "/**",
+                " * Represents the Essential JS 2 Angular ChipList Component.",
+                " * ```html",
+                " * <ejs-chiplist></ejs-chiplist>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * Represents the Essential JS 2 React ChipList Component.",
+                " * ```ts",
+                " * <ChipListComponent></ChipListComponent>",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the Essential JS 2 VueJS ChipList Component.",
+                " * ```html",
+                " * <ejs-chiplist></ejs-chiplist>",
+                " * ```",
+                " */"
+            ],
+            "tagDirective": [
+                {
+                    "arrayDirectiveClassName": "Chips",
+                    "directiveClassName": "Chip",
+                    "parentName": "Chips",
+                    "propertyName": "chips",
+                    "baseClass": "Chip",
+                    "aspArrayClassName": "ChipCollection",
+                    "aspDirectiveSelector": "e-chip",
+                    "aspArrayDirectiveSelector": "e-chips",
+                    "isDeprecated": true,
+                    "comment": [
+                        "/**",
+                        " * `e-chip` directive represent a chip of the Angular ChipList.",
+                        " * ```html",
+                        " * <ejs-chiplist > ",
+                        " *   <e-chips>",
+                        " *    <e-chip text='chip1'></e-chip>",
+                        " *    <e-chip text='chip2'></e-chip>",
+                        " *   </e-chips>",
+                        " * </ejs-chiplist>",
+                        " * ```",
+                        " */"
+                    ],
+                    "reactComment": [
+                        "/**",
+                        " * `ChipDirective` directive represent a chip of the React ChipList.",
+                        " * ```html",
+                        " * <ChipListComponent> ",
+                        " *   <ChipsDirective>",
+                        " *    <ChipDirective text='chip1'></ChipDirective>",
+                        " *    <ChipDirective text='chip2'></ChipDirective>",
+                        " *   </ChipsDirective>",
+                        " * </ChipListComponent>",
+                        " * ```",
+                        " */"
+                    ],
+                    "vueComment": [
+                        "/**",
+                        " * `e-chip` directive represent a chip of the Vue ChipList.",
+                        " * ```html",
+                        " * <ejs-chiplist > ",
+                        " *   <e-chips>",
+                        " *    <e-chip text='chip1'></e-chip>",
+                        " *    <e-chip text='chip2'></e-chip>",
+                        " *   </e-chips>",
+                        " * </ejs-chiplist>",
+                        " * ```",
+                        " */"
+                    ],
+                    "templateProperties": ["template"]
+                }
+            ]
+        },
+        {
+            "baseClass": "Fab",
+            "directoryName": "floating-action-button",
+            "type": "container",
+            "defaultTag": "<button id='button'></button>",
+            "selector": "[ejs-fab]",
+            "preferredTag": "button",
+            "blazorType": "native",
+            "blazorDependency": [
+                "../blazor/sf-floating-action-button"
+            ],
+            "comment": [
+                "/**",
+                " * Represents the Angular Fab Component.",
+                " * ```html",
+                " * <button ejs-fab content='fab'></button>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * `FabComponent` represents the react Fab Component.",
+                " * ```ts",
+                " * <FabComponent></FabComponent>",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the Essential JS 2 VueJS Fab Component",
+                " * ```html",
+                " * <ejs-fab></ejs-fab>",
+                " * ```",
+                " */"
+            ]
+        },
+        {
+            "baseClass": "SpeedDial",
+            "directoryName": "speed-dial",
+            "type": "container",
+            "defaultTag": "<button id='speeddial'></button>",
+            "selector": "[ejs-speeddial]",
+            "preferredTag": "button",
+            "twoWays": [ "visible" ],
+            "templateProperties": ["itemTemplate", "popupTemplate"],
+            "blazorType": "native",
+            "complexDirective": [
+                {
+                    "propertyName" : "animation",
+                    "baseClass" : "SpeedDialAnimationSettings",
+                    "aspClassName":"SpeedDialAnimationSettings",
+                    "SelectorName": "e-speeddial-animation",
+                    "aspSelectorName": "e-speeddial-animation"
+                },
+                {
+                    "propertyName" : "radialSettings",
+                    "baseClass" : "RadialSettings",
+                    "aspClassName":"SpeedDialRadialSettings",
+                    "SelectorName": "e-speeddial-radialsettings",
+                    "aspSelectorName": "e-speeddial-radialsettings"
+                }
+            ],
+            "tagDirective": [
+                {
+                    "arrayDirectiveClassName": "SpeedDialItems",
+                    "directiveClassName": "SpeedDialItem",
+                    "directiveSelector": "e-speeddial-item",
+                    "arrayDirectiveSelector":"e-speeddial-items",
+                    "aspArrayClassName":"SpeedDialItem",
+                    "aspCollectionClassName":"SpeedDialItems",
+                    "aspDirectiveSelector": "e-speeddial-item",
+                    "aspArrayDirectiveSelector":"e-speeddial-items",
+                    "parentName": "SpeedDialItems",
+                    "propertyName": "items",
+                    "baseClass": "SpeedDialItem",
+                    "isPartialClass": true,
+                    "comment": [
+                        "/**",
+                        " * 'e-speeddialitem' directive represent a item of the Angular SpeedDial.",
+                        " * It must be contained in a SpeedDial component(`ejs-speeddial`). ",
+                        " * ```html",
+                        " * <ejs-speeddial> ",
+                        " *   <e-speeddialitems>",
+                        " *    <e-speeddialitem text='Cut'></e-speeddialitem>",
+                        " *    <e-speeddialitem text='Copy'></e-speeddialitem>",
+                        " *   </e-speeddialitems>",
+                        " * </ejs-speeddial>",
+                        " * ```",
+                        " */"
+                    ],
+                    "reactComment": [
+                        "/**",
+                        " * `SpeedDialItemDirective` represent a item of the React SpeedDial. ",
+                        " * It must be contained in a SpeedDial component(`SpeedDialComponent`). ",
+                        " * ```tsx",
+                        " * <SpeedDialComponent> ",
+                        " *   <SpeedDialItemsDirective>",
+                        " *    <SpeedDialItemDirective text='Cut'></SpeedDialItemDirective>",
+                        " *    <SpeedDialItemDirective text='Copy'></SpeedDialItemDirective>",
+                        " *   <SpeedDialItemsDirective>",
+                        " * </SpeedDialComponent>",
+                        " * ```",
+                        " */"
+                    ],
+                    "vueComment": [
+                        "/**",
+                        " * 'e-speeddialitem' directive represent a item of Vue SpeedDial ",
+                        " * It must be contained in a SpeedDial component(`ejs-speeddial`). ",
+                        " * ```html",
+                        " * <ejs-speeddial> ",
+                        " *   <e-speeddialitems>",
+                        " *    <e-speeddialitem text='Cut'></e-speeddialitem>",
+                        " *    <e-speeddialitem text='Copy'></e-speeddialitem>",
+                        " *   </e-speeddialitems>",
+                        " * </ejs-speeddial>",
+                        " * ```",
+                        " */"
+                    ]
+                }
+            ],
+            "blazorDependency": [
+                "../blazor/sf-speeddial"
+            ],
+            "comment": [
+                "/**",
+                " * Represents the Angular SpeedDial Component.",
+                " * ```html",
+                " * <button ejs-speeddial content='Edit'></button>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * `SpeedDialComponent` represents the react SpeedDial Component.",
+                " * ```ts",
+                " * <SpeedDialComponent content='Edit'></SpeedDialComponent>",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the Essential JS 2 VueJS SpeedDialComponent Component",
+                " * ```html",
+                " * <ejs-speeddial content='Edit'></ejs-speeddial>",
+                " * ```",
+                " */"
+            ]
+        },
+        {
+            "baseClass": "SmartPasteButton",
+            "directoryName": "smart-paste-button",
+            "type": "container",
+            "defaultTag": "<button id='button'></button>",
+            "selector": "[ejs-smart-paste-button]",
+            "preferredTag": "button",
+            "blazorPlaceholder": "button",
+			"blazorType": "native",
+            "comment": [
+                "/**",
+                " * Represents the Angular Smart Paste Button Component.",
+                " * ```html",
+                " * <button ejs-smart-paste-button content='Smart paste'></button>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * `SmartPasteButtonComponent` represents the react Smart Paste Button Component.",
+                " * ```html",
+                " * <SmartPasteButtonComponent>Smart paste</SmartPasteButtonComponent>",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the Vue Smart Paste Button Component",
+                " * ```html",
+                " * <ejs-smart-paste-button>Smart paste</ejs-smart-paste-button>",
+                " * ```",
+                " */"
+            ]
+        }
+    ]
+}

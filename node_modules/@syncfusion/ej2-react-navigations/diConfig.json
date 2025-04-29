@@ -1,0 +1,1205 @@
+{
+    "name": "Navigations",
+    "keywords": {
+        "common": [
+            "ej2",
+            "syncfusion",
+            "web-components",
+            "javascript",
+            "typescript",
+            "model",
+            "toolbar",
+            "horizontal-scroll",
+            "ribbon",
+            "navbar",
+            "navigation-bar",
+            "toolbar-customization",
+            "scrollable-toolbar",
+            "toolbar-popup",
+            "multirow-toolbar",
+            "extended-toolbar",
+            "overflow",
+            "command-buttons",
+            "accordion",
+            "panelbar",
+            "ejTab",
+            "tab",
+            "tabStrip",
+            "scrollable-tab",
+            "popup-tab",
+            "multirow-tab",
+            "header-orientation",
+            "close-tab",
+            "tab-wizard",
+            "tab-with-menu",
+            "ejAccordion",
+            "accordion",
+            "accordion-wizard",
+            "multiple-open-panel-bar",
+            "multiple-open-accordion",
+            "panel-bar",
+            "collapsible-panel-bar",
+            "context-menu",
+            "context menu",
+            "contextmenu",
+            "breadcrumb",
+            "breadcrumb navigation",
+		    "breadcrumb trail",
+		    "ej2 breadcrumb",
+		    "navigation links",
+		    "navigational aid",
+		    "previous page navigation",
+		    "current page hierarchy",
+		    "current page location",
+		    "path of url",
+		    "trace page location",
+		    "list of breadcrumb links",
+            "breadcrumb routing",
+            "ej2 contextmenu",
+            "tab-directive",
+            "toolbar-directive",
+            "accordion-directive",
+            "sidebar",
+            "dock size",
+            "showbackdrop",
+            "target",
+            "position",
+            "dock",
+            "gestures",
+            "sticky-sidebar",
+            "fixed",
+            "hamburger",
+            "sidenav",
+            "nav",
+            "hamburger-menu",
+            "side-menu",
+            "navigation-bar",
+            "sticky",
+            "drawer",
+            "slidebar",
+            "slide",
+            "slide-panel",
+            "multiple-sidebar",
+            "slide-navigation",
+			"navigation-drawer",
+            "menu",
+            "menu bar",
+            "ej2 menu",
+            "menu items",
+            "menu item",
+            "menu-item",
+            "ej menu",
+            "treeview",
+            "tree",
+            "ej2-treeview",
+            "tree structure",
+            "hierarchical structure",
+            "tree navigation",
+            "treeview-checkbox",
+            "drag and drop",
+            "tree editing",
+            "load-on-demand",
+            "accordion tree",
+            "tree node template",
+            "tree multi selection",
+            "carousel",
+            "appbar",
+            "stepper",
+            "ej2-stepper"
+        ],
+        "angular": [
+            "angular",
+            "ng",
+            "ng-template",
+            "ej2-ng-navigations",
+            "ej2-angular-navigations",
+            "angular-navigations",
+            "ng-navigations",
+            "angular-toolbar",
+            "ng-toolbar",
+            "angular-tab",
+            "ng-tab",
+            "angular-routing",
+            "ng-routing",
+            "angular-tab-routing",
+            "ng-tab-routing",
+            "ng-contextmenu",
+            "angular-contextmenu",
+            "angular-treeview",
+            "ng-tree",
+            "ng-treeview",
+            "angular tree",
+            "angular treeview",
+            "angular2-treeview",
+            "ng-menu",
+            "angular menu",
+            "angular menubar",
+            "angular breadcrumb",
+            "ng breadcrumb",
+            "angular carousel",
+            "ng carousel",
+            "angular appbar",
+            "ng appbar",
+            "angular stepper",
+            "ng stepper"
+        ],
+        "react": [
+            "react",
+            "ej2-react-navigations",
+            "react-navigations",
+            "react-toolbar",
+            "react-tab",
+            "react-react",
+            "react-routing",
+            "react-contextmenu",
+            "react tree",
+            "react treeview",
+            "react tree component",
+            "react menu",
+            "react menu component",
+            "react breadcrumb",
+            "react carousel",
+            "react appbar",
+            "react stepper"
+        ],
+        "vue": [
+            "vue",
+            "ej2-vue-navigations",
+            " vue-navigations",
+            "vue-toolbar",
+            " vue-tab",
+            "vue-routing",
+            " vue-contextmenu",
+            "vue tree",
+            "vue treeview",
+            "vue tree component",
+            "vue menu",
+            "vue menu component",
+            "vue breadcrumb",
+            "vue carousel",
+            "vue appbar",
+            "vue stepper"
+        ]
+    },
+    "description": "Navigation Components",
+    "eventInterfaces": [
+        "EventArgs",
+        "ChangeEventArgs",
+        "MenuEventArgs",
+        "BeforeOpenCloseMenuEventArgs",
+        "OpenCloseMenuEventArgs",
+        "AccordionClickArgs",
+        "ExpandEventArgs",
+        "RemoveEventArgs",
+        "SelectEventArgs",
+        "SelectingEventArgs",
+        "BeforeCreateArgs",
+        "ClickEventArgs",
+        "DataBoundEventArgs",
+        "DataSourceChangedEventArgs",
+        "DrawNodeEventArgs",
+        "NodeKeyPressEventArgs",
+        "NodeCheckEventArgs",
+        "NodeClickEventArgs",
+        "NodeExpandEventArgs",
+        "DragAndDropEventArgs",
+        "NodeEditEventArgs",
+        "NodeSelectEventArgs",
+        "AddEventArgs",
+        "DragEventArgs",
+        "BreadcrumbBeforeItemRenderEventArgs",
+        "BreadcrumbClickEventArgs",
+        "SlideChangingEventArgs",
+        "SlideChangedEventArgs",
+        "StepperChangedEventArgs",
+        "StepperChangingEventArgs",
+        "StepperClickEventArgs",
+        "StepperEventArgs"
+    ],
+    "components": [
+        {
+            "baseClass": "Accordion",
+            "directoryName": "accordion",
+            "type": "container",
+            "blazorPlaceholder": "accordion",
+            "blazorType": "native",
+            "blazorDependency": [
+                "ej2-base",
+                "../blazor/sf-accordion"
+            ],
+            "contentSelect": "div",
+            "defaultTag": "<div id='ej2Accordion'></div>",
+            "twoWays": ["expandedIndices"],
+            "statelessTemplateProps": ["itemTemplate", "headerTemplate"],
+            "comment": [
+                "/**",
+                " * Represents the Angular Accordion Component.",
+                " * ```html",
+                " * <ejs-accordion></ejs-accordion>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * Represents the React Accordion Component.",
+                " * ```html",
+                " * <AccordionComponent></AccordionComponent",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the VueJS Accordion Component.",
+                " * ```html",
+                " * <ejs-accordion></ejs-accordion>",
+                " * ```",
+                " */"
+             ],
+            "tagDirective": [
+                {
+                    "arrayDirectiveClassName": "AccordionItems",
+                    "directiveClassName": "AccordionItem",
+                    "parentName": "AccordionItems",
+                    "propertyName": "items",
+                    "baseClass": "AccordionItem",
+                    "aspArrayClassName": "AccordionItem",
+                    "aspCollectionClassName": "AccordionItems",
+                    "isPartialClass": true,
+                    "comment": [
+                        "/**",
+                        " * 'e-accordionitem' directive represent a item of the Angular Accordion.",
+                        " * It must be contained in a Accordion component(`ejs-accordion`). ",
+                        " * ```html",
+                        " * <ejs-accordion> ",
+                        " *   <e-accordionitems>",
+                        " *    <e-accordionitem header='Header1'></e-accordionitem>",
+                        " *    <e-accordionitem header='Header2' content='Content2'></e-accordionitem>",
+                        " *   </e-accordionitems>",
+                        " * </ejs-accordion>",
+                        " * ```",
+                        " */"
+                    ],
+                    "reactComment": [
+                        "/**",
+                        " * `AccordionItemDirective` represent a item of the React Accordion. ",
+                        " * It must be contained in a Accordion component(`AccordionComponent`). ",
+                        " * ```tsx",
+                        " * <AccordionComponent> ",
+                        " *   <AccordionItemsDirective>",
+                        " *    <AccordionItemDirective  header='Header1'></AccordionItemDirective>",
+                        " *    <AccordionItemDirective  header='Header2' content='Content2'></AccordionItemDirective>",
+                        " *   <AccordionItemsDirective>",
+                        " * </AccordionComponent>",
+                        " * ```",
+                        " */"
+                    ],
+                    "vueComment": [
+                        "/**",
+                        " * 'e-accordionitem' directive represent a item of Vue Accordion ",
+                        " * It must be contained in a Accordion component(`ejs-accordion`). ",
+                        " * ```html",
+                        " * <ejs-accordion> ",
+                        " *   <e-accordionitems>",
+                        " *    <e-accordionitem header='Header1'></e-accordionitem>",
+                        " *    <e-accordionitem header='Header2' content='Content2'></e-accordionitem>",
+                        " *   </e-accordionitems>",
+                        " * </ejs-accordion>",
+                        " * ```",
+                        " */"
+                    ],
+                    "templateProperties": [
+                        "header",
+                        "content"
+                    ],
+                    "blazorContainerTemplates": ["header:headerTemplate", "content:contentTemplate"]
+                }
+            ],
+          "complexDirective": [
+            {
+                "propertyName": "animation",
+                "baseClass": "AccordionAnimationSettings",
+                "SelectorName": "e-accordion-animation",
+                "aspClassName": "AccordionAnimationSettings",
+                "complexDirective": [
+                  {
+                      "propertyName": "collapse",
+                      "baseClass": "ActionSettings",
+                      "aspSelectorName": "e-accordion-animation-collapse",
+                      "arrayDirectiveClassName": "ActionSettings",
+                      "isCommon": true,
+                      "blazorClassName": "AccordionAnimationCollapse",
+                      "blazorCommonClassName": "AccordionAnimationAction"
+
+                  },
+                  {
+                      "propertyName": "expand",
+                      "baseClass": "ActionSettings",
+                      "aspSelectorName": "e-accordion-animation-expand",
+                      "arrayDirectiveClassName": "ActionSettings",
+                      "isCommon": true,
+                      "blazorClassName": "AccordionAnimationExpand",
+                      "blazorCommonClassName": "AccordionAnimationAction"
+                  }
+                ]
+            }
+          ],
+          "templateProperties": [
+            "headerTemplate",
+            "itemTemplate"
+          ],
+          "blazorTemplates":[
+            "headerTemplate",
+            "itemTemplate"
+          ]
+        },
+        {
+            "baseClass": "Toolbar",
+            "directoryName": "toolbar",
+            "type": "container",
+            "blazorType": "native",
+            "blazorDependency": [
+                "ej2-base",
+                "ej2-popups/popup",
+                "../h-scroll",
+                "../v-scroll",
+                "../blazor/sf-toolbar"
+            ],
+            "blazorPlaceholder": "toolbar",
+            "contentSelect": "div",
+            "defaultTag": "<div id='ej2Toolbar'></div>",
+            "twoWays": [],
+            "comment": [
+                "/**",
+                " * Represents the Angular Toolbar Component.",
+                " * ```html",
+                " * <ejs-toolbar></ejs-toolbar>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * Represents the React Toolbar Component.",
+                " * ```html",
+                " * <ToolbarComponent></ToolbarComponent",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the VueJS Toolbar Component.",
+                " * ```html",
+                " * <ejs-toolbar></ejs-toolbar>",
+                " * ```",
+                " */"
+             ],
+            "tagDirective": [
+                {
+                    "arrayDirectiveClassName": "items",
+                    "directiveClassName": "item",
+                    "parentName": "items",
+                    "propertyName": "items",
+                    "baseClass": "Item",
+                    "directoryName": "toolbar",
+                    "comment": [
+                        "/**",
+                        " * 'e-item' directive represent a item of the Angular Toolbar.",
+                        " * It must be contained in a Toolbar component(`ejs-toolbar`). ",
+                        " * ```html",
+                        " * <ejs-toolbar> ",
+                        " *   <e-items>",
+                        " *    <e-item text='Cut'></e-item>",
+                        " *    <e-item text='Copy'></e-item>",
+                        " *   </e-items>",
+                        " * </ejs-toolbar>",
+                        " * ```",
+                        " */"
+                    ],
+                    "reactComment": [
+                        "/**",
+                        " * `ItemDirective` directive represent a item of the React Toolbar. ",
+                        " * It must be contained in a Toolbar component(`ToolbarComponent`). ",
+                        " * ```tsx",
+                        " * <ToolbarComponent> ",
+                        " *   <ItemsDirective>",
+                        " *    <ItemDirective text='Cut'></ItemDirective>",
+                        " *    <ItemDirective text='Copy'></ItemDirective>",
+                        " *   <ItemsDirective>",
+                        " * </ToolbarComponent>",
+                        " * ```",
+                        " */"
+                    ],
+                    "vueComment": [
+                        "/**",
+                        " * 'e-item' directive represent a item of Vue Toolbar ",
+                        " * It must be contained in a Toolbar component(`ejs-toolbar`). ",
+                        " * ```html",
+                        " * <ejs-toolbar> ",
+                        " *   <e-items>",
+                        " *    <e-item text='Cut'></e-item>",
+                        " *    <e-item text='Copy'></e-item>",
+                        " *   </e-items>",
+                        " * </ejs-toolbar>",
+                        " * ```",
+                        " */"
+                    ],
+                    "templateProperties": [
+                        "template"
+                    ],
+                    "blazorContainerTemplates": ["template"]
+                }
+            ]
+        },
+         {
+            "baseClass": "ContextMenu",
+            "directoryName": "context-menu",
+            "type": "simple",
+            "defaultTag": "<ul id='contextmenu'></ul>",
+            "preferredTag": "ul",
+            "twoWays": [],
+            "blazorPlaceholder": "contextmenu",
+            "blazorType": "native",
+            "blazorDependency": [
+                "ej2-base",
+                "ej2-popups/popup",
+                "../blazor/sf-contextmenu"
+            ],
+            "comment": [
+                "/**",
+                " * Represents the EJ2 Angular ContextMenu Component.",
+                " * ```html",
+                " * <div id='target'>Right click / Touch hold to open the ContextMenu</div>",
+                " * <ejs-contextmenu target='#target' [items]='menuItems'></ejs-contextmenu>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * `ContextMenuComponent` represents the react ContextMenu Component.",
+                " * ```ts",
+                " * <div id='target'>Right click / Touch hold to open the ContextMenu</div>",
+                " * <ContextMenuComponent target='#target' items={menuItems} />",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the Essential JS 2 VueJS ContextMenu Component.",
+                " * ```html",
+                " * <div id='target'>Right click / Touch hold to open the ContextMenu</div>",
+                " * <ejs-contextmenu target='#target' :items='menuItems'></ejs-contextmenu>",
+                " * ```",
+                " */"
+             ],
+             "complexDirective": [
+                {
+                    "baseClass": "MenuAnimationSettings",
+                    "propertyName": "animationSettings",
+                    "aspClassName": "ContextMenuAnimationSettings"
+                },
+                {
+                    "baseClass": "MenuItem",
+                    "propertyName": "items",
+                    "aspClassName": "ContextMenuItem"
+                }
+            ]
+        },
+        {
+            "baseClass": "Breadcrumb",
+            "directoryName": "breadcrumb",
+            "type": "simple",
+            "defaultTag": "<nav id='breadcrumb'></nav>",
+            "preferredTag": "nav",
+            "twoWays": ["activeItem"],
+            "blazorType": "native",
+            "blazorDependency": [
+                "ej2-base",
+                "ej2-popups/popup",
+                "../blazor/sf-breadcrumb"
+            ],
+            "statelessTemplateProps": ["itemTemplate"],
+            "comment": [
+                "/**",
+                " * Represents the EJ2 Angular Breadcrumb Component.",
+                " * ```html",
+                " * <ejs-breadcrumb [items]='breadcrumbItems'></ejs-breadcrumb>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * `BreadcrumbComponent` represents the react Breadcrumb Component.",
+                " * ```ts",
+                " * <BreadcrumbComponent items={breadcrumbItems} />",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the VueJS Breadcrumb Component.",
+                " * ```html",
+                " * <ejs-breadcrumb :items='breadcrumbItems'></ejs-breadcrumb>",
+                " * ```",
+                " */"
+             ],
+             "tagDirective": [
+                {
+                    "baseClass": "BreadcrumbItem",
+                    "propertyName": "items",
+                    "directiveClassName": "BreadcrumbItem",
+                    "arrayDirectiveClassName": "BreadcrumbItems",
+                    "arrayDirectiveSelector": "ejs-breadcrumb>e-breadcrumb-items",
+                    "directiveSelector": "ejs-breadcrumb>e-breadcrumb-items>e-breadcrumb-item",
+                    "directoryName": "breadcrumb",
+                    "aspArrayClassName": "BreadcrumbItem",
+                    "aspCollectionClassName": "BreadcrumbItems",
+                    "aspDirectiveSelector": "e-breadcrumb-item",
+                    "aspArrayDirectiveSelector": "e-breadcrumb-items",
+                    "comment": [
+                        "/**",
+                        " * `e-breadcrumb-item` directive represent a item of the Angular Breadcrumb.",
+                        " * It must be contained in a Breadcrumb component(`ejs-breadcrumb`).",
+                        " * ```html",
+                        " * <ejs-breadcrumb>",
+                        " *   <e-breadcrumb-items>",
+                        " *    <e-breadcrumb-item text='Home' url='/'></e-breadcrumb-item>",
+                        " *    <e-breadcrumb-item text='Index' url='./index'></e-breadcrumb-item>",
+                        " *   </e-breadcrumb-items>",
+                        " * </ejs-breadcrumb>",
+                        " * ```",
+                        " */"
+                    ],
+                    "reactComment": [
+                        "/**",
+                        " * `BreadcrumbItemDirective` represent a item of the React Breadcrumb. ",
+                        " * It must be contained in a Breadcrumb component(`BreadcrumbComponent`). ",
+                        " * ```tsx",
+                        " * <BreadcrumbComponent> ",
+                        " *   <BreadcrumbItemsDirective>",
+                        " *    <BreadcrumbItemDirective text='Home' url='/'></BreadcrumbItemDirective>",
+                        " *    <BreadcrumbItemDirective text='Index' url='./index'></BreadcrumbItemDirective>",
+                        " *   </BreadcrumbItemsDirective>",
+                        " * </BreadcrumbComponent>",
+                        " * ```",
+                        " */"
+                    ],
+                    "vueComment": [
+                        "/**",
+                        " * `e-breadcrumb-item` directive represent a item of the Vue Breadcrumb.",
+                        " * It must be contained in a Breadcrumb component(`ejs-breadcrumb`).",
+                        " * ```html",
+                        " * <ejs-breadcrumb>",
+                        " *   <e-breadcrumb-items>",
+                        " *    <e-breadcrumb-item text='Home' url='/'></e-breadcrumb-item>",
+                        " *    <e-breadcrumb-item text='Index' url='./index'></e-breadcrumb-item>",
+                        " *   </e-breadcrumb-items>",
+                        " * </ejs-breadcrumb>",
+                        " * ```",
+                        " */"
+                    ]
+                }
+            ],
+            "templateProperties": [
+                "separatorTemplate",
+                "itemTemplate"
+              ]
+        },
+        {
+            "baseClass": "Carousel",
+            "directoryName": "carousel",
+            "blazorDependency": [
+                "ej2-base",
+                "../blazor/sf-carousel"
+            ],
+            "type": "simple",
+            "defaultTag": "<div id='carousel'></div>",
+            "preferredTag": "div",
+            "twoWays": [
+                "selectedIndex"
+            ],
+            "statelessTemplateProps": ["itemTemplate"],
+            "comment": [
+                "/**",
+                " * Represents the EJ2 Angular Carousel Component.",
+                " * ```html",
+                " * <ejs-carousel [items]='carouselItems'></ejs-carousel>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * `CarouselComponent` represents the react Carousel Component.",
+                " * ```ts",
+                " * <CarouselComponent items={carouselItems} />",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the VueJS Carousel Component.",
+                " * ```html",
+                " * <ejs-carousel :items='carouselItems'></ejs-carousel>",
+                " * ```",
+                " */"
+             ],
+             "tagDirective": [
+                {
+                    "baseClass": "CarouselItem",
+                    "propertyName": "items",
+                    "directiveClassName": "CarouselItem",
+                    "arrayDirectiveClassName": "CarouselItems",
+                    "arrayDirectiveSelector": "ejs-carousel>e-carousel-items",
+                    "directiveSelector": "ejs-carousel>e-carousel-items>e-carousel-item",
+                    "directoryName": "carousel",
+                    "aspArrayClassName": "CarouselItem",
+                    "aspCollectionClassName": "CarouselItems",
+                    "aspDirectiveSelector": "e-carousel-item",
+                    "aspArrayDirectiveSelector": "e-carousel-items",
+                    "templateProperties": [
+                        "template"
+                    ],
+                    "comment": [
+                        "/**",
+                        " * `e-carousel-item` directive represent a item of the Angular Carousel.",
+                        " * It must be contained in a Carousel component(`ejs-carousel`).",
+                        " * ```html",
+                        " * <ejs-carousel>",
+                        " *   <e-carousel-items>",
+                        " *    <e-carousel-item template='#item1'></e-carousel-item>",
+                        " *    <e-carousel-item template='#item2'></e-carousel-item>",
+                        " *   </e-carousel-items>",
+                        " * </ejs-carousel>",
+                        " * ```",
+                        " */"
+                    ],
+                    "reactComment": [
+                        "/**",
+                        " * `CarouselItemDirective` represent a item of the React Carousel. ",
+                        " * It must be contained in a Carousel component(`CarouselComponent`). ",
+                        " * ```tsx",
+                        " * <CarouselComponent> ",
+                        " *   <CarouselItemsDirective>",
+                        " *    <CarouselItemDirective template='#item1'></CarouselItemDirective>",
+                        " *    <CarouselItemDirective template='#item2'></CarouselItemDirective>",
+                        " *   </CarouselItemsDirective>",
+                        " * </CarouselComponent>",
+                        " * ```",
+                        " */"
+                    ],
+                    "vueComment": [
+                        "/**",
+                        " * `e-carousel-item` directive represent a item of the Vue Carousel.",
+                        " * It must be contained in a Carousel component(`ejs-carousel`).",
+                        " * ```html",
+                        " * <ejs-carousel>",
+                        " *   <e-carousel-items>",
+                        " *    <e-carousel-item template='itemTemplate'></e-carousel-item>",
+                        " *    <e-carousel-item template='secondItemTemplate'></e-carousel-item>",
+                        " *   </e-carousel-items>",
+                        " * </ejs-carousel>",
+                        " * ```",
+                        " */"
+                    ]
+                }
+            ],
+            "templateProperties": [
+                "indicatorsTemplate",
+                "nextButtonTemplate",
+                "previousButtonTemplate",
+                "playButtonTemplate",
+                "itemTemplate"
+              ]
+        },
+        {
+            "baseClass": "Tab",
+            "directoryName": "tab",
+            "type": "container",
+            "blazorType": "native",
+            "blazorDependency": [
+                "ej2-base",
+                "ej2-popups/popup",
+                "../h-scroll",
+                "../v-scroll",
+                "../blazor/sf-toolbar",
+                "../blazor/sf-tab"
+            ],
+            "blazorPlaceholder": "tab",
+            "contentSelect": "div",
+            "defaultTag": "<div id='ej2Tab'></div>",
+            "twoWays": [],
+            "blazorTwoWays": [
+                "selectedItem"
+            ],
+            "comment": [
+                "/**",
+                " * Represents the Angular Tab Component.",
+                " * ```html",
+                " * <ejs-tab></ejs-tab>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * Represents the React Tab Component.",
+                " * ```html",
+                " * <TabComponent></TabComponent>",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the VueJS Tab Component.",
+                " * ```html",
+                " * <ejs-tab></ejs-tab>",
+                " * ```",
+                " */"
+             ],
+            "tagDirective": [
+                {
+                    "baseClass": "TabItem",
+                    "propertyName": "items",
+                    "directiveClassName": "tabItem",
+                    "arrayDirectiveClassName": "tabItems",
+                    "aspArrayClassName": "TabItem",
+                    "isPartialClass": true,
+                    "aspCollectionClassName": "TabItems",            
+                    "comment": [
+                        "/**",
+                        " * 'e-tabitem' directive represent a item of the Angular Tab.",
+                        " * It must be contained in a Tab component(`ejs-tab`). ",
+                        " * ```html",
+                        " * <ejs-tab>",
+                        " *  <e-tabitems>",
+                        " *   <e-tabitem [header]='Header 1' [content]='Content 1'></e-tabitem>",
+                        " *   <e-tabitem [header]='Header 2' [content]='Content 2'></e-tabitem>",
+                        " *  <e-tabitems> ",
+                        " * </ejs-tab>",
+                        " * ```",
+                        " */"
+                    ],
+                    "reactComment": [
+                        "/**",
+                        " * `TabItemDirective` represent a item of the React Tab. ",
+                        " * It must be contained in a Tab component(`Tab`). ",
+                        " * ```tsx",
+                        " * <TabComponent>",
+                        " *  <TabItemsDirective>",
+                        " *   <TabItemDirective header= { 'Header 1' } content= { 'Content 1' } />",
+                        " *   <TabItemDirective header= { 'Header 2' } content= { 'Content 2' } />",
+                        " *  <TabItemsDirective>",
+                        " * </TabComponent>",
+                        " * ```",
+                        " */"
+                    ],
+                    "vueComment": [
+                        "/**",
+                        " * 'e-tabitem' directive represent a item of the Vue Tab ",
+                        " * It must be contained in a Tab component(`ejs-tab`). ",
+                        " * ```html",
+                        " * <ejs-tab>",
+                        " *  <e-tabitems>",
+                        " *   <e-tabitem :header='Header 1' :content='Content 1'></e-tabitem>",
+                        " *   <e-tabitem :header='Header 2' :content='Content 2'></e-tabitem>",
+                        " *  <e-tabitems> ",
+                        " * </ejs-tab>",
+                        " * ```",
+                        " */"
+                    ],
+                    "templateProperties": [
+                        "content",
+                        "header.text",
+                        "headerTemplate"
+                    ],
+                    "blazorContainerTemplates": [ "content:contentTemplate", "headerTemplate:headerTemplate"],
+                    "complexDirective": [
+                        {
+                            "propertyName": "header",
+                            "baseClass": "Header"
+                        }]
+                }
+            ],
+            "complexDirective": [
+                {
+                    "propertyName": "animation",
+                    "baseClass": "TabAnimationSettings",
+                    "SelectorName": "e-tab-animation",
+                    "aspClassName": "TabAnimationSettings",
+                    "complexDirective": [
+                        {
+                            "propertyName": "previous",
+                            "baseClass": "ActionSettings",
+                            "aspSelectorName": "e-tab-animation-previous",
+                            "arrayDirectiveClassName": "ActionSettings",
+                            "isCommon": true,
+                            "blazorClassName": "TabAnimationPrevious",
+                            "blazorCommonClassName": "TabAnimationAction"
+                        },
+                        {
+                            "propertyName": "next",
+                            "baseClass": "ActionSettings",
+                            "aspSelectorName": "e-tab-animation-next",
+                            "arrayDirectiveClassName": "ActionSettings",
+                            "isCommon": true,
+                            "blazorClassName": "TabAnimationNext",
+                            "blazorCommonClassName": "TabAnimationAction"
+                        }
+                    ]
+                }
+            ]
+        },{
+           "baseClass": "TreeView",
+           "directoryName": "treeview",
+           "type": "simple",
+           "dynamicModules": [ ],
+           "twoWays": [ ],
+           "blazorPlaceholder": "treeview",
+           "blazorType": "native",
+           "blazorDependency": [
+                "ej2-base",
+                "../blazor/sf-treeview"
+            ],
+           "isGenericClass": true,
+           "comment": [
+              "/**",
+              " * TreeView component is used to represent the hierarchical data in tree like structure with advanced functions to perform edit, drag and drop, selection with check-box and more.",
+              " * ```html",
+              " * <ej-treeview allowDragAndDrop='true'></ej-treeview>",
+              " * ```",
+              " */"
+            ],
+          "reactComment": [
+             "/**",
+             " * `TreeViewComponent` represents the react TreeView Component.",
+             " * ```ts",
+             " * <TreeViewComponent allowDragAndDrop={true}></TreeViewComponent>",
+             " * ```",
+             " */"
+           ],
+           "vueComment": [
+               "/**",
+               " * Represents the EJ2 VueJS TreeView Component.",
+               " * ```html",
+               " * <ejs-treeview></ejs-treeview>",
+               " * ```",
+               " */"
+            ],
+          "complexDirective": [
+                {
+                    "propertyName": "fields",
+                    "baseClass": "FieldsSettings",
+                    "SelectorName": "e-treeview-fields",
+                    "isCommon": "true",
+                    "blazorCommonClassName": "TreeViewCommonFieldsSettings",
+                    "isGenericClass": true,
+                    "complexDirective": [
+                        {
+                            "propertyName": "child",
+                            "baseClass": "FieldsSettings",
+                            "aspSelectorName":"e-treeview-child",
+                            "blazorClassName" : "TreeViewFieldChild",
+                            "isCommon": "true",
+                            "isGenericClass": true,
+                            "blazorCommonClassName": "TreeViewCommonFieldsSettings"
+                        }
+                    ]
+                },
+                {
+                    "propertyName": "animation",
+                    "baseClass": "NodeAnimationSettings",
+                    "SelectorName": "e-treeview-animation",
+                    "complexDirective": [
+                        {
+                            "propertyName": "collapse",
+                            "baseClass": "ActionSettings",
+                            "aspSelectorName": "e-treeview-collapse",
+                            "isCommon": "true",
+                            "blazorCommonClassName": "TreeViewActionSettings",
+                            "blazorClassName": "TreeViewCollapse"
+
+                        },
+                        {
+                            "propertyName": "expand",
+                            "baseClass": "ActionSettings",
+                            "aspSelectorName": "e-treeview-expand",
+                            "isCommon": "true",
+                            "blazorCommonClassName": "TreeViewActionSettings",
+                            "blazorClassName": "TreeViewExpand"
+                        }
+                    ]
+                }
+
+            ],
+        "templateProperties": [
+          "nodeTemplate"
+        ],
+        "blazorTemplates": [
+            "nodeTemplate"
+        ]
+      },
+
+      {
+            "baseClass": "Sidebar",
+            "directoryName": "sidebar",
+            "type": "container",
+            "dynamicModules": [],
+            "twoWays": ["isOpen"],
+            "comment": [
+                "/**",
+                " * Represents the Essential JS 2 Angular Sidebar Component.",
+                " * ```html",
+                " * <ejs-sidebar></ejs-sidebar>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * `SidebarComponent` represents the Essential JS 2 React Sidebar Component.",
+                " * ```ts",
+                " * <SidebarComponent></SidebarComponent>",
+                " * ```",
+                " */"
+            ],
+			 "vueComment": [
+                "/**",
+                " *  Represents the Essential JS 2 VueJS Sidebar Component.",
+                " * ```html",
+                " * <ejs-sidebar></ejs-sidebar>",
+                " * ```",
+                " */"
+            ],
+            "blazorType": "native",
+            "blazorDependency": [
+                "ej2-base",
+                "../blazor/sf-sidebar"
+            ]
+        },
+        {
+            "baseClass": "Menu",
+            "directoryName": "menu",
+            "type": "simple",
+            "defaultTag": "<ul id='menu'></ul>",
+            "preferredTag": "ul",
+            "twoWays": [],
+            "blazorPlaceholder": "menu",
+            "blazorType": "native",
+            "blazorDependency": [
+                "ej2-base",
+                "ej2-popups/popup",
+                "../blazor/sf-contextmenu",
+                "../blazor/sf-menu",
+                "../h-scroll",
+                "../v-scroll",
+                "../menu-scroll"
+            ],
+            "comment": [
+                "/**",
+                " * Represents the EJ2 Angular Menu Component.",
+                " * ```html",
+                " * <ejs-menu [items]='menuItems'></ejs-menu>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * `MenuComponent` represents the react Menu Component.",
+                " * ```ts",
+                " * <MenuComponent items={menuItems} />",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the Essential JS 2 VueJS Menu Component.",
+                " * ```html",
+                " * <ejs-menu :items='menuItems'></ejs-menu>",
+                " * ```",
+                " */"
+             ],
+             "tagDirective": [
+                {
+                    "arrayDirectiveClassName": "MenuItems",
+                    "directiveClassName": "MenuItem",
+                    "propertyName": "items",
+                    "baseClass": "MenuItem",
+                    "arrayDirectiveSelector": "ejs-menu>e-menu-items",
+                    "directiveSelector": "ejs-menu>e-menu-items>e-menu-item>",
+                    "directoryName": "menu",
+                    "aspArrayClassName": "MenuItem",
+                    "aspCollectionClassName": "MenuItems",
+                    "aspDirectiveSelector": "e-menu-item",
+                    "aspArrayDirectiveSelector": "e-menu-items",
+                    "blazorClassName": "MenuItem",
+                    "blazorArrayClassName": "MenuItems",
+                    "comment": [],
+                    "reactComment": [],
+                    "vueComment": []
+                }
+            ],
+            "complexDirective": [
+                {
+                    "baseClass": "MenuAnimationSettings",
+                    "propertyName": "animationSettings",
+                    "aspClassName": "MenuAnimationSettings"
+                },
+                {
+                    "baseClass": "FieldSettings",
+                    "propertyName": "fields",
+                    "aspSelectorName": "e-menu-fieldsettings"
+                }
+            ],
+            "templateProperties": [
+                "template"
+            ],
+              "blazorTemplates":[
+                "template"
+            ]
+        },
+        {
+            "baseClass": "AppBar",
+            "directoryName": "appbar",
+            "type": "container",
+            "defaultTag": "<header id='appbar'></header>",
+            "preferredTag": "header",
+            "dynamicModules": [],
+            "twoWays": [],
+            "comment": [
+                "/**",
+                " * Represents the Essential JS 2 Angular AppBar Component.",
+                " * ```html",
+                " * <ejs-appbar></ejs-appbar>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * `AppBarComponent` represents the Essential JS 2 React AppBar Component.",
+                " * ```ts",
+                " * <AppBarComponent></AppBarComponent>",
+                " * ```",
+                " */"
+            ],
+			 "vueComment": [
+                "/**",
+                " *  Represents the Essential JS 2 VueJS AppBar Component.",
+                " * ```html",
+                " * <ejs-appbar></ejs-appbar>",
+                " * ```",
+                " */"
+            ],
+            "blazorType": "native",
+            "blazorDependency": [
+                "ej2-base"
+            ]
+        },
+        {
+            "baseClass": "Stepper",
+            "directoryName": "stepper",
+            "type": "container",
+            "defaultTag": "<nav id='ej2Stepper'></nav>",
+            "removeDuplicateClassName": true,
+            "preferredTag": "nav",
+            "contentSelect": "nav",
+            "twoWays": ["activeStep"],
+            "blazorType": "native",
+            "blazorDependency": [
+                "ej2-base",
+                "../blazor/sf-stepper"
+            ],
+            "blazorPlaceholder": "stepper",
+            "templateProperties": [ "template", "tooltipTemplate"],
+            "blazorTemplates":[
+                "template",
+                "tooltipTemplate"
+            ],
+            "complexDirective": [
+                {
+                    "baseClass": "StepperAnimationSettings",
+                    "propertyName": "animation",
+                    "aspClassName":"StepperAnimationSettings",
+                    "SelectorName": "e-stepper-animation",
+                    "aspSelectorName": "e-stepper-animation"
+                }
+            ],
+            "comment": [
+                "/**",
+                " * Represents the EJ2 Angular Stepper Component.",
+                " * ```html",
+                " * <nav ejs-stepper [steps]='stepItems'></nav>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * `StepperComponent` represents the react Stepper Component.",
+                " * ```ts",
+                " * <StepperComponent steps={stepItems} />",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * Represents the Essential JS 2 VueJS Stepper Component.",
+                " * ```html",
+                " * <ejs-stepper :steps='stepItems'></ejs-stepper>",
+                " * ```",
+                " */"
+             ],
+             "tagDirective": [
+                {
+                    "arrayDirectiveClassName": "steps",
+                    "directiveClassName": "step",
+                    "propertyName": "steps",
+                    "baseClass": "Step",
+                    "arrayDirectiveSelector": "ejs-stepper>e-steps",
+                    "directiveSelector": "ejs-stepper>e-steps>e-step",
+                    "directoryName": "stepper",
+                    "aspArrayClassName": "Step",
+                    "aspCollectionClassName": "Steps",
+                    "aspDirectiveSelector": "e-stepper-step",
+                    "aspArrayDirectiveSelector": "e-stepper-steps",
+                    "comment": [
+                        "/**",
+                        " * 'e-step' directive represents a step of the Angular Stepper.",
+                        " * It must be contained in a Stepper component(`ejs-stepper`). ",
+                        " * ```html",
+                        " * <ejs-stepper>",
+                        " *  <e-steps>",
+                        " *   <e-step [iconCss]='e-icons e-folder' [text]='Step 1' />",
+                        " *   <e-step [iconCss]='e-icons e-folder' [text]='Step 2' />",
+                        " *  </e-steps> ",
+                        " * </ejs-stepper>",
+                        " * ```",
+                        " */"
+                    ],
+                    "reactComment": [
+                        "/**",
+                        " * `StepDirective` represents a step of the React Stepper. ",
+                        " * It must be contained in a Stepper component(`StepperComponent`). ",
+                        " * ```tsx",
+                        " * <StepperComponent>",
+                        " *  <StepsDirective>",
+                        " *   <StepDirective iconCss= { 'e-icons e-folder' } text= { 'Step 1' } />",
+                        " *   <StepDirective iconCss= { 'e-icons e-folder' } text= { 'Step 2' } />",
+                        " *  </StepsDirective>",
+                        " * </StepperComponent>",
+                        " * ```",
+                        " */"
+                    ],
+                    "vueComment": [
+                        "/**",
+                        " * 'e-step' directive represents a step of the Vue Stepper ",
+                        " * It must be contained in a Stepper component(`ejs-stepper`). ",
+                        " * ```html",
+                        " * <ejs-stepper>",
+                        " *  <e-steps>",
+                        " *   <e-step :iconCss='e-icons e-folder' :text='Step 1' />",
+                        " *   <e-step :iconCss='e-icons e-folder' :text='Step 2' />",
+                        " *  </e-steps> ",
+                        " * </ejs-stepper>",
+                        " * ```",
+                        " */"
+                    ]
+                }
+            ]
+        }
+   ]
+}

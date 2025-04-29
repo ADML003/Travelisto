@@ -1,0 +1,551 @@
+{
+    "name": "DropDowns",
+    "description": "DropDown Components",
+   "keywords": {
+     "common": ["ej2", "Syncfusion", "web-components", "dropdownlist", "autocomplete", "multiselect", "combobox", "select", "dropdwontree" ],
+     "angular": ["angular", "ng", "ng-dropdown", "ej2-ng-dropdown", "ng-dropdownlist", "ng-autocomplete", "ng-multiselect", "ng-combobox", "ng-dropdowntree"],
+     "react": ["react", "react-dropdowns", "ej2-react-dropdown","react-dropdownlist", "react-autocomplete", "react-multiselect", "react-combobox", "react-dropdowntree"],
+     "vue": ["vue", "vue-dropdown", "ej2-vue-dropdown", "vue-dropdownlist", "vue-autocomplete", "vue-multiselect", "vue-combobox", "vue-dropdowntree"]
+},
+    "eventInterfaces": ["DdtBeforeOpenEventArgs", "DdtDataBoundEventArgs", "DdtFocusEventArgs", "DdtSelectEventArgs", "DdtPopupEventArgs", "DdtChangeEventArgs", "CustomValueSpecifierEventArgs", "BeforeOpenEventArgs", "ActionBeginEventArgs", "ActionCompleteEventArgs", "ChangeEventArgs", "PopupEventArgs", "FocusEventArgs", "SelectEventArgs", "FilteringEventArgs", "ItemCreatedArgs", "IUpdateListArgs", "RemoveEventArgs", "CustomValueEventArgs", "TaggingEventArgs", "MultiSelectChangeEventArgs", "ISelectAllEventArgs", "BeforeItemRenderEventArgs", "DragEventArgs", "ListBoxChangeEventArgs"],
+    "components": [
+        {
+            "baseClass": "DropDownList",
+            "directoryName": "drop-down-list",
+            "preferredTag": "input",
+            "blazorPlaceholder": "ddl",
+            "skipEventPropagation": true,
+            "blazorType": "native",
+            "type": "form",
+            "twoWays": [
+                "value"
+            ],
+            "statelessTemplateProps": ["headerTemplate","valueTemplate","itemTemplate"],
+            "dynamicModules": [
+                "VirtualScroll"
+            ],
+            "comment": [
+                "/**",
+                "*The DropDownList component contains a list of predefined values, from which the user can choose a single value.",
+                "*```html",
+                "*<ejs-dropdownlist></ejs-dropdownlist>",
+                "*```",
+                "*/"
+            ],
+            "reactComment": [
+                "/**",
+                " * The DropDownList component contains a list of predefined values, from which the user can choose a single value.",
+                " * ```",
+                " * <DropDownListComponent dataSource={data}/>",
+                " * ```",
+                " */"
+            ],
+			"vueComment": [
+                "/**",
+                " * DropDownList contains a list of predefined values from which the user can choose",
+                " * ```html",
+                " * <ejs-dropdownlist :dataSource='data'></ejs-dropdownlist>",
+                " * ```",
+                " */"
+            ],
+            "templateProperties": [
+                "footerTemplate",
+                "headerTemplate",
+                "valueTemplate",
+                "groupTemplate",
+                "itemTemplate",
+                {
+                    "name": "noRecordsTemplate",
+                    "defaultValue": "No records found"
+                },
+                {
+                    "name": "actionFailureTemplate",
+                    "defaultValue": "Request failed"
+                }
+            ],
+            "complexDirective": [
+                {
+                    "isDeprecated": true,
+                    "propertyName" : "fields",
+                    "baseClass" : "FieldSettings",
+                    "SelectorName": "e-dropdownlist-fields"
+                }
+            ],
+            "genericProperties": [
+                {
+                     "type": "TValue", 
+                     "name": "value"
+                },
+                { 
+                     "type": "TItem",
+                     "name": "dataSource" 
+                }
+             ],
+            "isGenericClass": true,
+            "blazorCustomBaseComponent": "DropDownBase<TItem>",
+            "blazorDependency": [
+                "ej2-base",
+                "ej2-popups/popup"
+            ]    
+        },
+        {
+            "baseClass": "ComboBox",
+            "directoryName": "combo-box",
+            "preferredTag": "input",
+            "blazorPlaceholder": "combobox",
+            "skipEventPropagation": true,
+            "type": "form",
+            "twoWays": [
+                "value"
+            ],
+            "statelessTemplateProps": ["headerTemplate","itemTemplate"],
+            "dynamicModules": [
+                "VirtualScroll"
+            ],
+            "comment": [
+                "/**",
+                "*The ComboBox component allows the user to type a value or choose an option from the list of predefined options.",
+                "*```html",
+                "*<ejs-combobox></ejs-combobox>",
+                "*```",
+                "*/"
+            ],
+            "reactComment": [
+                "/**",
+                " *The ComboBox component allows the user to type a value or choose an option from the list of predefined options.",
+                " * ```",
+                " * <ComboBoxComponent dataSource={data}/>",
+                " * ```",
+                " */"
+            ],
+			"vueComment": [
+                "/**",
+                " * ComboBox component allows the user to type a value or choose an option from the list of predefined options available",
+                " * ```html",
+                " * <ejs-combobox :dataSource='data'></ejs-combobox>",
+                " * ```",
+                " */"
+            ],
+            "templateProperties": [
+                "footerTemplate",
+                "headerTemplate",
+                "groupTemplate",
+                "itemTemplate",
+                {
+                    "name": "noRecordsTemplate",
+                    "defaultValue": "No records found"
+                },
+                {
+                    "name": "actionFailureTemplate",
+                    "defaultValue": "Request failed"
+                }
+            ],
+			"complexDirective": [
+                {
+                    "isDeprecated": true,
+                    "propertyName" : "fields",
+                    "baseClass" : "FieldSettings",
+                    "SelectorName": "e-combobox-fields"
+                }
+            ],
+            "genericProperties": [
+                {
+                     "type": "TValue", 
+                     "name": "value"
+                },
+                { 
+                     "type": "TItem",
+                     "name": "dataSource" 
+                }
+             ],
+            "isGenericClass": true,
+            "blazorCustomBaseComponent": "SfDropDownList<TValue, TItem>",
+            "blazorType": "native",
+            "isBlazorDerivedTemplate": true,
+            "blazorDependency": [
+                "ej2-base",
+                "../blazor/sf-dropdownlist"
+            ]
+        },
+        {
+            "baseClass": "AutoComplete",
+            "directoryName": "auto-complete",
+            "preferredTag": "input",
+            "blazorPlaceholder": "autocomplete",
+            "skipEventPropagation": true,
+            "type": "form",
+            "twoWays": [
+                "value"
+            ],
+            "statelessTemplateProps": ["headerTemplate","itemTemplate"],
+            "dynamicModules": [
+                "VirtualScroll"
+            ],
+            "comment": [
+                "/**",
+                " *The AutoComplete component provides the matched suggestion list when type into the input, from which the user can select one.",
+                "*```html",
+                "*<ejs-autocomplete></ejs-autocomplete>",
+                "*```",
+                "*/"
+            ],
+            "reactComment": [
+                "/**",
+                " *The AutoComplete component provides the matched suggestion list when type into the input, from which the user can select one.",
+                " * ```",
+                " * <AutoCompleteComponent dataSource={data}/>",
+                " * ```",
+                " */"
+            ],
+			"vueComment": [
+                "/**",
+                " * The AutoComplete component provides all the matched suggestion list on typing the input from which the user can select one.",
+                " * ```html",
+                " * <ejs-autocomplete :dataSource='data'></ejs-autocomplete>",
+                " * ```",
+                " */"
+            ],
+            "templateProperties": [
+                "footerTemplate",
+                "headerTemplate",
+                "groupTemplate",
+                "itemTemplate",
+                {
+                    "name": "noRecordsTemplate",
+                    "defaultValue": "No records found"
+                },
+                {
+                    "name": "actionFailureTemplate",
+                    "defaultValue": "Request failed"
+                }
+            ],
+			"complexDirective": [
+                {
+                    "isDeprecated": true,
+                    "propertyName" : "fields",
+                    "baseClass" : "FieldSettings",
+                    "SelectorName": "e-autocomplete-fields"
+                }
+            ],
+            "genericProperties": [
+                {
+                     "type": "TValue", 
+                     "name": "value"
+                },
+                { 
+                     "type": "TItem",
+                     "name": "dataSource" 
+                }
+             ],
+            "isGenericClass": true,
+            "blazorCustomBaseComponent": "SfDropDownList<TValue, TItem>",
+            "blazorType": "native",
+            "isBlazorDerivedTemplate": true,
+            "blazorDependency": [
+                "ej2-base",
+                "../blazor/sf-dropdownlist"
+            ]
+        },
+        {
+            "baseClass": "MultiSelect",
+            "directoryName": "multi-select",
+            "preferredTag": "input",
+            "skipEventPropagation": true,
+            "blazorType": "native",
+            "blazorPlaceholder": "multiselect",
+            "type": "form",
+            "twoWays": [
+                "value"
+            ],
+            "statelessTemplateProps": ["headerTemplate","valueTemplate","itemTemplate"],
+            "dynamicModules": [
+                "CheckBoxSelection", "VirtualScroll"
+            ],
+            "comment": [
+                "/**",
+                "* The MultiSelect allows the user to pick a values from the predefined list of values.",
+                "*```html",
+                "*<ejs-multiselect></ejs-multiselect>",
+                "*```",
+                "*/"
+            ],
+            "reactComment": [
+                "/**",
+                "* The MultiSelect allows the user to pick a values from the predefined list of values.",
+                " * ```",
+                " * <MultiSelectComponent dataSource={data}/>",
+                " * ```",
+                " */"
+            ],
+			"vueComment": [
+                "/**",
+                " * MultiSelect component allows the user to select a value from the predefined list of values.",
+                " * ```html",
+                " * <ejs-multiselect :dataSource='data'></ejs-multiselect>",
+                " * ```",
+                " */"
+            ],
+            "templateProperties": [
+                "footerTemplate",
+                "headerTemplate",
+                "valueTemplate",
+                "itemTemplate",
+                "groupTemplate",
+                {
+                    "name": "noRecordsTemplate",
+                    "defaultValue": "No records found"
+                },
+                {
+                    "name": "actionFailureTemplate",
+                    "defaultValue": "Request failed"
+                }
+            ],
+            "blazorTemplates":[
+                "footerTemplate",
+                "headerTemplate",
+                "valueTemplate",
+                "itemTemplate",
+                "noRecordsTemplate",
+                "actionFailureTemplate"
+            ],
+			"complexDirective": [
+                {
+                    "propertyName" : "fields",
+                    "baseClass" : "FieldSettings",
+                    "SelectorName": "e-multiselect-fields"
+                }
+            ],
+            "isGenericClass": true,
+            "isTTypeIgnore": true,
+            "blazorDependency": [
+                "ej2-base",
+                "../blazor/sf-multiselect"
+            ]
+        },
+        {
+            "baseClass": "ListBox",
+            "directoryName": "list-box",
+            "preferredTag": "input",
+            "type": "form",
+            "twoWays": [
+                "value"
+            ],
+            "blazorPlaceholder": "listbox",
+            "isGenericClass": true,
+            "isTTypeIgnore": true,
+            "blazorType": "native",
+            "blazorDependency": [
+                "ej2-base",
+                "ej2-popups/popup",
+                "ej2-lists/sortable",
+                "../blazor/sf-listbox"
+            ],
+			"genericProperties": [
+                {
+                     "type": "TValue",
+                     "name": "value"
+                },
+                {
+                     "type": "TItem",
+                     "name": "dataSource"
+                }
+             ],
+            "blazorCustomBaseComponent": "DropDownBase<TItem>",
+            "dynamicModules": [
+                "CheckBoxSelection"
+            ],
+            "blazorDynamicModules": ["CheckBoxSelection"],
+            "comment": [
+                "/**",
+                "* The ListBox allows the user to select values from the predefined list of values.",
+                "*```html",
+                "*<ejs-listbox [dataSource]='data'></ejs-listbox>",
+                "*```",
+                "*/"
+            ],
+            "reactComment": [
+                "/**",
+                "* The ListBox allows the user to select values from the predefined list of values.",
+                " * ```",
+                " * <ListBoxComponent dataSource={data} />",
+                " * ```",
+                " */"
+            ],
+			"vueComment": [
+                "/**",
+                " * ListBox component allows the user to select values from the predefined list of values.",
+                " * ```html",
+                " * <ejs-listbox :dataSource='data'></ejs-listbox>",
+                " * ```",
+                " */"
+            ],
+            "templateProperties": [
+                "itemTemplate",
+                {
+                    "name": "noRecordsTemplate",
+                    "defaultValue": "No records found"
+                }
+            ],
+			"complexDirective": [
+                {
+                    "isDeprecated": true,
+                    "propertyName" : "fields",
+                    "baseClass" : "FieldSettings"
+                },
+                {
+				    "isDeprecated": true,
+                    "propertyName" : "selectionSettings",
+                    "baseClass" : "SelectionSettings"
+                },
+                {
+			    	"isDeprecated": true,
+                    "propertyName" : "toolbarSettings",
+                    "baseClass" : "ToolbarSettings"
+                }
+            ]
+        },
+        {
+            "baseClass": "DropDownTree",
+            "directoryName": "drop-down-tree",
+            "blazorType": "none",
+            "preferredTag": "input",
+            "blazorPlaceholder": "dropdowntree",
+            "skipEventPropagation": true,
+            "type": "form",
+            "twoWays": [
+                "value"
+            ],
+            "blazorTwoWays": [
+                "value"
+            ],
+            "comment": [
+                "/**",
+                "*The DropDownTree component contains a list of predefined values from which you can choose a single or multiple values.",
+                "*```html",
+                "*<ejs-dropdowntree></ejs-dropdowntree>",
+                "*```",
+                "*/"
+            ],
+            "reactComment": [
+                "/**",
+                " *The DropDownTree component contains a list of predefined values from which you can choose a single or multiple values.",
+                " * ```",
+                " * <DropDownTreeComponent/>",
+                " * ```",
+                " */"
+            ],
+			"vueComment": [
+                "/**",
+                " * The DropDownTree component contains a list of predefined values from which you can choose a single or multiple values.",
+                " * ```html",
+                " * <ejs-dropdowntree></ejs-dropdowntree>",
+                " * ```",
+                " */"
+            ],
+            "templateProperties": [
+                "footerTemplate",
+                "headerTemplate",
+                "valueTemplate",
+                "itemTemplate",
+                {
+                    "name": "noRecordsTemplate",
+                    "defaultValue": "No Records Found"
+                },
+                {
+                    "name": "actionFailureTemplate",
+                    "defaultValue": "The Request Failed"
+                }
+            ],
+            "blazorTemplates":[
+                "footerTemplate",
+                "headerTemplate",
+                "itemTemplate",
+                "noRecordsTemplate",
+                "actionFailureTemplate"
+            ],
+            "complexDirective": [
+                {
+                    "propertyName" : "fields",
+                    "baseClass" : "Fields",
+                    "SelectorName": "e-dropdowntree-fields"
+                },
+                {
+                    "propertyName": "treeSettings",
+                    "baseClass" : "TreeSettings",
+                    "SelectorName": "e-dropdowntree-treesettings"
+                }
+            ],
+            "isGenericClass": true
+        },
+        {
+            "baseClass": "Mention",
+            "directoryName": "mention",
+            "type": "container",
+		    "preferredTag":"div",
+            "blazorPlaceholder": "mention",
+            "defaultTag": "<div id='ej2Mention'></div>",
+            "twoWays": [],
+            "statelessTemplateProps": ["itemTemplate"],
+            "comment": [
+                "/**",
+                "*The Mention component contains a list of predefined values, from which the user can choose a single value.",
+                "*```html",
+                "*<ejs-mention></ejs-mention>",
+                "*```",
+                "*/"
+            ],
+            "reactComment": [
+                "/**",
+                " * The Mention component contains a list of predefined values, from which the user can choose a single value.",
+                " * ```",
+                " * <MentionComponent dataSource={data}/>",
+                " * ```",
+                " */"
+            ],
+			"vueComment": [
+                "/**",
+                " * The Mention contains a list of predefined values from which the user can choose",
+                " * ```html",
+                " * <ejs-mention :dataSource='data'></ejs-mention>",
+                " * ```",
+                " */"
+            ],
+            "templateProperties": [
+                "displayTemplate",
+                "itemTemplate",
+                "spinnerTemplate",
+                {
+                    "name": "noRecordsTemplate",
+                    "defaultValue": "No records found"
+                }
+            ],
+            "complexDirective": [
+                {
+                    "isDeprecated": true,
+                    "propertyName" : "fields",
+                    "baseClass" : "FieldSettings",
+                    "SelectorName": "e-mention-fields"
+                }
+            ],
+            "genericProperties": [
+                { 
+                     "type": "TItem",
+                     "name": "dataSource" 
+                }
+             ],
+            "isGenericClass": true,
+            "blazorCustomBaseComponent": "DropDownBase<TItem>",
+            "blazorType": "native",
+            "isBlazorDerivedTemplate": true,
+            "blazorDependency": [
+                "ej2-base",
+                "ej2-popups/popup"
+            ]
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/syncfusion/ej2-javascript-ui-controls"
+    },
+    "statelessTemplateProps": ["headerTemplate", "itemTemplate", "valueTemplate"]
+}

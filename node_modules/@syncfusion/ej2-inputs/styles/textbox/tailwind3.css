@@ -1,0 +1,44 @@
+
+
+
+
+/* stylelint-disable property-no-vendor-prefix */
+/* stylelint-disable */
+.e-filled.e-float-input.e-error label.e-float-text,
+.e-filled.e-float-input.e-control-wrapper.e-error label.e-float-text,
+.e-filled.e-float-input.e-error input:focus ~ label.e-float-text,
+.e-filled.e-float-input.e-control-wrapper.e-error input:focus ~ label.e-float-text,
+.e-filled.e-float-input.e-error textarea:focus ~ label.e-float-text,
+.e-filled.e-float-input.e-control-wrapper.e-error textarea:focus ~ label.e-float-text,
+.e-filled.e-float-input.e-error.e-input-focus input ~ label.e-float-text,
+.e-filled.e-float-input.e-control-wrapper.e-error.e-input-focus input ~ label.e-float-text {
+  color: var(--color-sf-danger) !important;
+}
+
+/* stylelint-disable-line no-empty-source */
+.e-content-placeholder.e-textbox.e-placeholder-textbox {
+  background-size: 300px 33px;
+  min-height: 33px;
+}
+
+.e-input-group.e-input-focus.e-multi-line-input textarea.e-textbox {
+  padding-right: 30px;
+}
+
+.e-input-group.e-input-focus.e-rtl.e-multi-line-input textarea.e-textbox {
+  padding-left: 30px;
+}
+
+.e-bigger .e-content-placeholder.e-textbox.e-placeholder-textbox,
+.e-bigger.e-content-placeholder.e-textbox.e-placeholder-textbox {
+  background-size: 300px 40px;
+  min-height: 40px;
+}
+
+.e-bigger .e-input-group.e-input-focus.e-multi-line-input textarea.e-textbox {
+  padding-right: 32px;
+}
+
+.e-bigger .e-input-group.e-input-focus.e-rtl.e-multi-line-input textarea.e-textbox {
+  padding-left: 32px;
+}
