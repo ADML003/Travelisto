@@ -13,14 +13,18 @@ const NavItems = ({ handleClick }: { handleClick?: () => void }) => {
   };
 
   return (
-    <section className="nav-items">
+    <section className="nav-items h-full flex flex-col overflow-hidden">
       <Link to="/" className="link-logo">
-        <img src="/assets/icons/logo.svg" alt="logo" className="size-[30px]" />
+        <img
+          src="/assets/icons/travelisto-logo-blue.svg"
+          alt="Travelisto logo"
+          className="size-[40px]"
+        />
         <h1>Travelisto</h1>
       </Link>
 
-      <div className="container">
-        <nav>
+      <div className="container flex-1 flex flex-col justify-between overflow-hidden">
+        <nav className="flex-shrink-0">
           {sidebarItems.map(({ id, href, icon, label }) => (
             <NavLink to={href} key={id}>
               {({ isActive }: { isActive: boolean }) => (
@@ -44,7 +48,7 @@ const NavItems = ({ handleClick }: { handleClick?: () => void }) => {
           ))}
         </nav>
 
-        <footer className="nav-footer">
+        <footer className="nav-footer flex-shrink-0">
           <img
             src={user?.imageUrl || "/assets/images/david.webp"}
             alt={user?.name || "David"}

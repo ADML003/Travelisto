@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="faviconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="50%" style="stop-color:#764ba2"/>
+      <stop offset="100%" style="stop-color:#f093fb"/>
+    </linearGradient>
+  </defs>
+  <circle cx="16" cy="16" r="14" fill="url(#faviconGradient)"/>
+  <path d="M8 20 L12 14 L16 18 L20 12 L24 16" stroke="white" stroke-width="2" fill="none"/>
+  <circle cx="12" cy="16" r="1" fill="white"/>
+  <circle cx="16" cy="14" r="1" fill="white"/>
+  <circle cx="20" cy="14" r="1" fill="white"/>
+  <text x="16" y="25" font-family="Arial" font-size="6" fill="white" text-anchor="middle">✈</text>
+</svg>

@@ -3,11 +3,7 @@ import { getAllTrips, getTripById } from "~/appwrite/trips";
 import type { Route } from "./+types/trip-detail";
 import { cn, getFirstWord, parseTripData } from "~/lib/utils";
 import { Header, InfoPill, TripCard } from "../../../components";
-import {
-  ChipDirective,
-  ChipListComponent,
-  ChipsDirective,
-} from "@syncfusion/ej2-react-buttons";
+import { Chip, ChipList } from "../../../components/ui/Chip";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   const { tripId } = params;
@@ -104,17 +100,27 @@ const TripDetail = ({ loaderData }: Route.ComponentProps) => {
         </section>
 
         <section className="flex gap-3 md:gap-5 items-center flex-wrap">
-          <ChipListComponent id="travel-chip">
-            <ChipsDirective>
-              {pillItems.map((pill, i) => (
-                <ChipDirective
+          <ChipList>
+            {pillItems.map((pill, i) => {
+              const variant = pill.bg.includes("pink")
+                ? "pink"
+                : pill.bg.includes("primary")
+                ? "primary"
+                : pill.bg.includes("success")
+                ? "success"
+                : pill.bg.includes("navy")
+                ? "navy"
+                : "default";
+              return (
+                <Chip
                   key={i}
                   text={getFirstWord(pill.text)}
-                  cssClass={`${pill.bg} !text-base !font-medium !px-4`}
+                  variant={variant}
+                  className="!text-base !font-medium !px-4"
                 />
-              ))}
-            </ChipsDirective>
-          </ChipListComponent>
+              );
+            })}
+          </ChipList>
 
           <ul className="flex gap-1 items-center">
             {Array(5)
@@ -130,14 +136,7 @@ const TripDetail = ({ loaderData }: Route.ComponentProps) => {
               ))}
 
             <li className="ml-1">
-              <ChipListComponent>
-                <ChipsDirective>
-                  <ChipDirective
-                    text="4.9/5"
-                    cssClass="!bg-yellow-50 !text-yellow-700"
-                  />
-                </ChipsDirective>
-              </ChipListComponent>
+              <Chip text="4.9/5" variant="yellow" />
             </li>
           </ul>
         </section>

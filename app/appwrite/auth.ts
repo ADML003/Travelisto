@@ -193,14 +193,14 @@ export const setJwtSession = async () => {
       return redirect("/sign-in"); // Redirect if no user
     }
 
-    // Get the current session and set JWT
+    // Get the current session
     const session = await account.getSession("current");
 
-    // You can now use the session JWT to authenticate API calls
-    console.log("JWT Token:", session?.jwt); // Access JWT here
+    // You can now use the session to authenticate API calls
+    console.log("Session ID:", session?.$id); // Access session ID here
 
-    // Optional: Store JWT if needed
-    localStorage.setItem("jwt", session?.jwt); // Or sessionStorage
+    // Optional: Store session ID if needed
+    localStorage.setItem("sessionId", session?.$id || ""); // Or sessionStorage
   } catch (error) {
     console.error("Failed to fetch user or JWT:", error);
     redirect("/sign-in");
@@ -272,4 +272,3 @@ export const getUser = async () => {
     return null;
   }
 };
-

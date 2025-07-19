@@ -1,5 +1,6 @@
 import { Link, redirect } from "react-router";
-import { ButtonComponent } from "@syncfusion/ej2-react-buttons";
+import { Button } from "../../../components/ui/Button";
+import { LoadingSpinner } from "../../../components";
 import { loginWithGoogle } from "~/appwrite/auth";
 import { account } from "~/appwrite/client";
 
@@ -16,14 +17,19 @@ export async function clientLoader() {
 const SignIn = () => {
   return (
     <main className="auth">
+      {/* Floating decorative elements */}
+      <div className="floating-element-1">🧳</div>
+      <div className="floating-element-2">🗺️</div>
+      <div className="floating-element-3">🎒</div>
+
       <section className="size-full glassmorphism flex-center px-6">
         <div className="sign-in-card">
           <header className="header">
             <Link to="/">
               <img
-                src="/assets/icons/logo.svg"
-                alt="logo"
-                className="size-[30px]"
+                src="/assets/icons/travelisto-logo-blue.svg"
+                alt="Travelisto logo"
+                className="size-[50px]"
               />
             </Link>
             <h1 className="p-28-bold text-dark-100">Travelisto</h1>
@@ -40,9 +46,8 @@ const SignIn = () => {
             </p>
           </article>
 
-          <ButtonComponent
+          <Button
             type="button"
-            iconCss="e-search-icon"
             className="button-class !h-11 !w-full"
             onClick={loginWithGoogle}
           >
@@ -54,10 +59,19 @@ const SignIn = () => {
             <span className="p-18-semibold text-white">
               Sign in with Google
             </span>
-          </ButtonComponent>
+          </Button>
         </div>
       </section>
     </main>
   );
 };
+
+export function ClientLoaderFallback() {
+  return (
+    <div className="min-h-screen bg-light-200 flex items-center justify-center">
+      <LoadingSpinner size="lg" text="Checking authentication..." />
+    </div>
+  );
+}
+
 export default SignIn;

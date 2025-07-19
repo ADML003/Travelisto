@@ -1,0 +1,24 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main circle background -->
+  <circle cx="20" cy="20" r="18" fill="#1e40af" stroke="#3b82f6" stroke-width="2"/>
+  
+  <!-- Airplane icon -->
+  <g transform="translate(20, 20)">
+    <!-- Airplane body -->
+    <path d="M-6 -2 L6 0 L-6 2 Z" fill="white"/>
+    <!-- Left wing -->
+    <path d="M-2 -1 L-8 -4 L-6 -2 Z" fill="white"/>
+    <!-- Right wing -->
+    <path d="M-2 1 L-8 4 L-6 2 Z" fill="white"/>
+    <!-- Tail -->
+    <path d="M4 -1 L8 -2 L8 2 L4 1 Z" fill="white"/>
+    <!-- Wing tips -->
+    <circle cx="-7" cy="-3" r="0.5" fill="#60a5fa"/>
+    <circle cx="-7" cy="3" r="0.5" fill="#60a5fa"/>
+  </g>
+  
+  <!-- Travel trail effect -->
+  <path d="M8 20 Q14 18 20 20 Q26 22 32 20" stroke="#60a5fa" stroke-width="1" fill="none" opacity="0.7" stroke-dasharray="2,2">
+    <animate attributeName="stroke-dashoffset" values="0;4" dur="2s" repeatCount="indefinite"/>
+  </path>
+</svg>

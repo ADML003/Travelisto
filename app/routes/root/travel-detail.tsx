@@ -3,12 +3,8 @@ import { getAllTrips, getTripById } from "~/appwrite/trips";
 import type { Route } from "./+types/travel-detail";
 import { cn, getFirstWord, parseTripData } from "~/lib/utils";
 import { Header, InfoPill, TripCard } from "../../../components";
-import {
-  ButtonComponent,
-  ChipDirective,
-  ChipListComponent,
-  ChipsDirective,
-} from "@syncfusion/ej2-react-buttons";
+import { Button } from "../../../components/ui/Button";
+import { Chip, ChipList } from "../../../components/ui/Chip";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   const { tripId } = params;
@@ -33,6 +29,40 @@ const TravelDetail = ({ loaderData }: Route.ComponentProps) => {
   const imageUrls = loaderData?.trip?.imageUrls || [];
   const tripData = parseTripData(loaderData?.trip?.tripDetail);
   const paymentLink = loaderData?.trip?.payment_link;
+
+  // Country coordinate mapping for common destinations
+  const getCountryCoordinates = (countryName: string): number[] => {
+    const coordinates: { [key: string]: number[] } = {
+      france: [48.8566, 2.3522],
+      paris: [48.8566, 2.3522],
+      japan: [35.6762, 139.6503],
+      tokyo: [35.6762, 139.6503],
+      italy: [41.9028, 12.4964],
+      rome: [41.9028, 12.4964],
+      spain: [40.4168, -3.7038],
+      madrid: [40.4168, -3.7038],
+      "united kingdom": [51.5074, -0.1278],
+      london: [51.5074, -0.1278],
+      "united states": [40.7128, -74.006],
+      "new york": [40.7128, -74.006],
+      germany: [52.52, 13.405],
+      berlin: [52.52, 13.405],
+      australia: [-33.8688, 151.2093],
+      sydney: [-33.8688, 151.2093],
+      brazil: [-22.9068, -43.1729],
+      greece: [37.9838, 23.7275],
+      thailand: [13.7563, 100.5018],
+      india: [28.7041, 77.1025],
+      china: [39.9042, 116.4074],
+      canada: [45.4215, -75.6972],
+      mexico: [19.4326, -99.1332],
+    };
+
+    const normalizedCountry = countryName.toLowerCase().trim();
+    return (
+      coordinates[normalizedCountry] || tripData?.location?.coordinates || []
+    );
+  };
 
   const {
     name,
@@ -107,17 +137,27 @@ const TravelDetail = ({ loaderData }: Route.ComponentProps) => {
           </section>
 
           <section className="flex gap-3 md:gap-5 items-center flex-wrap">
-            <ChipListComponent id="travel-chip">
-              <ChipsDirective>
-                {pillItems.map((pill, i) => (
-                  <ChipDirective
+            <ChipList>
+              {pillItems.map((pill, i) => {
+                const variant = pill.bg.includes("pink")
+                  ? "pink"
+                  : pill.bg.includes("primary")
+                  ? "primary"
+                  : pill.bg.includes("success")
+                  ? "success"
+                  : pill.bg.includes("navy")
+                  ? "navy"
+                  : "default";
+                return (
+                  <Chip
                     key={i}
                     text={getFirstWord(pill.text)}
-                    cssClass={`${pill.bg} !text-base !font-medium !px-4`}
+                    variant={variant}
+                    className="!text-base !font-medium !px-4"
                   />
-                ))}
-              </ChipsDirective>
-            </ChipListComponent>
+                );
+              })}
+            </ChipList>
 
             <ul className="flex gap-1 items-center">
               {Array(5)
@@ -133,14 +173,7 @@ const TravelDetail = ({ loaderData }: Route.ComponentProps) => {
                 ))}
 
               <li className="ml-1">
-                <ChipListComponent>
-                  <ChipsDirective>
-                    <ChipDirective
-                      text="4.9/5"
-                      cssClass="!bg-yellow-50 !text-yellow-700"
-                    />
-                  </ChipsDirective>
-                </ChipListComponent>
+                <Chip text="4.9/5" variant="yellow" />
               </li>
             </ul>
           </section>
@@ -200,12 +233,12 @@ const TravelDetail = ({ loaderData }: Route.ComponentProps) => {
           ))}
 
           <a href={paymentLink} className="flex">
-            <ButtonComponent className="button-class" type="submit">
+            <Button className="button-class">
               <span className="p-16-semibold text-white">
                 Pay to join the trip
               </span>
               <span className="price-pill">{estimatedPrice}</span>
-            </ButtonComponent>
+            </Button>
           </a>
         </section>
       </div>

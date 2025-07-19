@@ -24,10 +24,6 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-import { registerLicense } from "@syncfusion/ej2-base";
-
-registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY);
-
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -48,6 +44,33 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return <Outlet />;
+}
+
+export function HydrateFallback() {
+  return (
+    <div className="min-h-screen bg-light-200 flex items-center justify-center">
+      <div className="flex flex-col items-center gap-4">
+        <div className="relative">
+          <div className="w-16 h-16 border-4 border-primary-100 border-t-transparent rounded-full animate-spin"></div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <img
+              src="/assets/icons/travelisto-logo-blue.svg"
+              alt="Loading"
+              className="w-8 h-8"
+            />
+          </div>
+        </div>
+        <div className="text-center">
+          <h2 className="text-lg font-semibold text-dark-100 mb-2">
+            Loading Travelisto
+          </h2>
+          <p className="text-gray-100 text-sm">
+            Getting your travel experience ready...
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

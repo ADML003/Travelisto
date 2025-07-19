@@ -111,9 +111,9 @@ const RootNavbar = () => {
       <header className="root-nav wrapper">
         <Link to="/" className="link-logo">
           <img
-            src="/assets/icons/logo.svg"
-            alt="logo"
-            className="size-[30px]"
+            src="/assets/icons/travelisto-logo-blue.svg"
+            alt="Travelisto logo"
+            className="size-[40px]"
           />
           <h1>Travelisto</h1>
         </Link>

@@ -1,12 +1,12 @@
 import { Link, type LoaderFunctionArgs, useSearchParams } from "react-router";
-import { ButtonComponent } from "@syncfusion/ej2-react-buttons";
+import { Button } from "../../../components/ui/Button";
 import { cn, parseTripData } from "~/lib/utils";
 import { Header, TripCard } from "../../../components";
 import { getAllTrips } from "~/appwrite/trips";
 import type { Route } from "../../../.react-router/types/app/routes/admin/+types/trips";
 import { useState } from "react";
 import { getUser } from "~/appwrite/auth";
-import { PagerComponent } from "@syncfusion/ej2-react-grids";
+import { Pagination } from "../../../components/ui/Pagination";
 
 const FeaturedDestination = ({
   containerClass = "",
@@ -105,22 +105,25 @@ const TravelPage = ({ loaderData }: Route.ComponentProps) => {
           <section className="wrapper">
             <article>
               <h1 className="p-72-bold text-dark-100">
-                Plan Your Trip with Ease
+                🌍 Your Next Adventure Awaits! ✈️
               </h1>
 
               <p className="text-dark-100">
-                Customize your travel itinerary in minutes—pick your
-                destination, set your preferences, and explore with confidence.
+                AI-powered trip planner that creates personalized itineraries in
+                minutes. Pick your destination, share your style, and let us
+                craft the perfect adventure! Ready to explore? 🗺️
               </p>
             </article>
 
             <Link to="#trips">
-              <ButtonComponent
+              <Button
                 type="button"
                 className="button-class !h-11 !w-full md:!w-[240px]"
               >
-                <span className="p-16-semibold text-white">Get Started</span>
-              </ButtonComponent>
+                <span className="p-16-semibold text-white">
+                  🚀 Start Planning Now
+                </span>
+              </Button>
             </Link>
           </section>
         </div>
@@ -128,8 +131,8 @@ const TravelPage = ({ loaderData }: Route.ComponentProps) => {
 
       <section className="pt-20 wrapper flex flex-col gap-10 h-full">
         <Header
-          title="Featured Travel Destinations"
-          description="Check out some of the best places you visit around the world"
+          title="🌟 Trending Travel Experiences"
+          description="Discover the world's most captivating destinations, handpicked by our travel experts and loved by adventurers like you! 🏖️🏔️"
         />
         <div className="featured">
           <article>
@@ -188,8 +191,8 @@ const TravelPage = ({ loaderData }: Route.ComponentProps) => {
 
       <section id="trips" className="py-20 wrapper flex flex-col gap-10">
         <Header
-          title="Handpicked Trips"
-          description="Browse well-planned trips designes for your travel style"
+          title="✨ AI-Curated Trip Collection"
+          description="Explore perfectly crafted journeys designed by our intelligent travel planner. Each itinerary is tailored for unforgettable experiences! 🎯"
         />
 
         <div className="trip-grid">
@@ -206,12 +209,11 @@ const TravelPage = ({ loaderData }: Route.ComponentProps) => {
           ))}
         </div>
 
-        <PagerComponent
-          totalRecordsCount={loaderData.total}
-          pageSize={8}
+        <Pagination
           currentPage={currentPage}
-          click={(args) => handlePageChange(args.currentPage)}
-          cssClass="!mb-4"
+          totalPages={Math.ceil(loaderData.total / 8)}
+          onPageChange={handlePageChange}
+          className="!mb-4"
         />
       </section>
 
@@ -219,9 +221,9 @@ const TravelPage = ({ loaderData }: Route.ComponentProps) => {
         <div className="wrapper footer-container">
           <Link to="/">
             <img
-              src="/assets/icons/logo.svg"
-              alt="logo"
-              className="size-[30px]"
+              src="/assets/icons/travelisto-logo-blue.svg"
+              alt="Travelisto logo"
+              className="size-[40px]"
             />
             <h1>Travelisto</h1>
           </Link>

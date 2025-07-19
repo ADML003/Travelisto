@@ -1,4 +1,9 @@
-import { Header, StatsCard, TripCard } from "../../../components";
+import {
+  Header,
+  StatsCard,
+  TripCard,
+  LoadingSpinner,
+} from "../../../components";
 import { getAllUsers, getUser } from "~/appwrite/auth";
 import type { Route } from "./+types/dashboard";
 import {
@@ -9,21 +14,17 @@ import {
 import { getAllTrips } from "~/appwrite/trips";
 import { parseTripData } from "~/lib/utils";
 import {
-  Category,
-  ChartComponent,
-  ColumnSeries,
-  DataLabel,
-  SeriesCollectionDirective,
-  SeriesDirective,
-  SplineAreaSeries,
+  AreaChart,
+  Area,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
   Tooltip,
-} from "@syncfusion/ej2-react-charts";
-import {
-  ColumnDirective,
-  ColumnsDirective,
-  GridComponent,
-  Inject,
-} from "@syncfusion/ej2-react-grids";
+  ResponsiveContainer,
+} from "recharts";
+import { DataTable } from "../../../components/ui/DataTable";
 import { tripXAxis, tripyAxis, userXAxis, useryAxis } from "~/constants";
 import { redirect } from "react-router";
 
@@ -140,75 +141,31 @@ const Dashboard = ({ loaderData }: Route.ComponentProps) => {
       </section>
 
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-        <ChartComponent
-          id="chart-1"
-          primaryXAxis={userXAxis}
-          primaryYAxis={useryAxis}
-          title="User Growth"
-          tooltip={{ enable: true }}
-        >
-          <Inject
-            services={[
-              ColumnSeries,
-              SplineAreaSeries,
-              Category,
-              DataLabel,
-              Tooltip,
-            ]}
-          />
+        <div className="bg-white p-6 rounded-lg shadow-sm">
+          <h3 className="text-lg font-semibold mb-4">User Growth</h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={userGrowth}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="day" />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="count" fill="#4784EE" radius={[10, 10, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
 
-          <SeriesCollectionDirective>
-            <SeriesDirective
-              dataSource={userGrowth}
-              xName="day"
-              yName="count"
-              type="Column"
-              name="Column"
-              columnWidth={0.3}
-              cornerRadius={{ topLeft: 10, topRight: 10 }}
-            />
-
-            <SeriesDirective
-              dataSource={userGrowth}
-              xName="day"
-              yName="count"
-              type="SplineArea"
-              name="Wave"
-              fill="rgba(71, 132, 238, 0.3)"
-              border={{ width: 2, color: "#4784EE" }}
-            />
-          </SeriesCollectionDirective>
-        </ChartComponent>
-
-        <ChartComponent
-          id="chart-2"
-          primaryXAxis={tripXAxis}
-          primaryYAxis={tripyAxis}
-          title="Trip Trends"
-          tooltip={{ enable: true }}
-        >
-          <Inject
-            services={[
-              ColumnSeries,
-              SplineAreaSeries,
-              Category,
-              DataLabel,
-              Tooltip,
-            ]}
-          />
-
-          <SeriesCollectionDirective>
-            <SeriesDirective
-              dataSource={tripsByTravelStyle}
-              xName="travelStyle"
-              yName="count"
-              type="Column"
-              name="day"
-              columnWidth={0.3}
-              cornerRadius={{ topLeft: 10, topRight: 10 }}
-            />
-          </SeriesCollectionDirective>
-        </ChartComponent>
+        <div className="bg-white p-6 rounded-lg shadow-sm">
+          <h3 className="text-lg font-semibold mb-4">Trip Trends</h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={tripsByTravelStyle}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="travelStyle" />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="count" fill="#22c55e" radius={[10, 10, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
       </section>
 
       <section className="user-trip wrapper">
@@ -216,38 +173,43 @@ const Dashboard = ({ loaderData }: Route.ComponentProps) => {
           <div key={i} className="flex flex-col gap-5">
             <h3 className="p-20-semibold text-dark-100">{title}</h3>
 
-            <GridComponent dataSource={dataSource} gridLines="None">
-              <ColumnsDirective>
-                <ColumnDirective
-                  field="name"
-                  headerText="Name"
-                  width="200"
-                  textAlign="Left"
-                  template={(props: UserData) => (
+            <DataTable
+              data={dataSource}
+              columns={[
+                {
+                  key: "name",
+                  header: "Name",
+                  render: (_, user: UserData) => (
                     <div className="flex items-center gap-1.5 px-4">
                       <img
-                        src={props.imageUrl}
+                        src={user.imageUrl}
                         alt="user"
                         className="rounded-full size-8 aspect-square"
                         referrerPolicy="no-referrer"
                       />
-                      <span>{props.name}</span>
+                      <span>{user.name}</span>
                     </div>
-                  )}
-                />
-
-                <ColumnDirective
-                  field={field}
-                  headerText={headerText}
-                  width="150"
-                  textAlign="Left"
-                />
-              </ColumnsDirective>
-            </GridComponent>
+                  ),
+                },
+                {
+                  key: field,
+                  header: headerText,
+                },
+              ]}
+            />
           </div>
         ))}
       </section>
     </main>
   );
 };
+
+export function ClientLoaderFallback() {
+  return (
+    <div className="min-h-screen bg-light-200 flex items-center justify-center">
+      <LoadingSpinner size="lg" text="Loading dashboard data..." />
+    </div>
+  );
+}
+
 export default Dashboard;

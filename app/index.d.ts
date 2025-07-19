@@ -115,6 +115,7 @@ declare interface DashboardStats {
 
 declare interface CreateTripResponse {
   id?: string;
+  error?: string;
 }
 
 declare interface DestinationProps {

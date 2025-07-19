@@ -1,14 +1,13 @@
-// @ts-nocheck
-
+import { useState } from "react";
 import { Link } from "react-router";
-import { SidebarComponent } from "@syncfusion/ej2-react-navigations";
+import { Sidebar } from "./ui/Sidebar";
 import NavItems from "./NavItems";
 
 const MobileSidebar = () => {
-  let sidebar: SidebarComponent;
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
-    sidebar.toggle();
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -16,9 +15,9 @@ const MobileSidebar = () => {
       <header>
         <Link to="/">
           <img
-            src="/assets/icons/logo.svg"
-            alt="Logo"
-            className="size-[30px]"
+            src="/assets/icons/travelisto-logo-blue.svg"
+            alt="Travelisto Logo"
+            className="size-[40px]"
           />
 
           <h1>Travelisto</h1>
@@ -29,16 +28,13 @@ const MobileSidebar = () => {
         </button>
       </header>
 
-      <SidebarComponent
-        width={270}
-        ref={(Sidebar) => (sidebar = Sidebar)}
-        created={() => sidebar.hide()}
-        closeOnDocumentClick={true}
-        showBackdrop={true}
-        type="over"
+      <Sidebar
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        className="w-[270px]"
       >
         <NavItems handleClick={toggleSidebar} />
-      </SidebarComponent>
+      </Sidebar>
     </div>
   );
 };

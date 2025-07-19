@@ -1,11 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-@import "../node_modules/@syncfusion/ej2-base/styles/material.css";
-@import "../node_modules/@syncfusion/ej2-react-buttons/styles/material.css";
-@import "../node_modules/@syncfusion/ej2-react-grids/styles/material.css";
-@import "../node_modules/@syncfusion/ej2-react-navigations/styles/material.css";
-@import "../node_modules/@syncfusion/ej2-react-splitbuttons/styles/material.css";
-@import "../node_modules/@syncfusion/ej2-react-dropdowns/styles/material.css";
 @import "tailwindcss";
 
 @theme {
@@ -39,29 +33,27 @@
   --color-red-100: #ff543d;
 
   --background-image-auth: url("/assets/images/auth-img.webp");
-  --background-image-hero: url("/assets/images/hero-img.png");
-  --background-image-card-1: url("/assets/images/card-img-1.png");
-  --background-image-card-2: url("/assets/images/card-img-2.png");
-  --background-image-card-3: url("/assets/images/card-img-3.png");
-  --background-image-card-4: url("/assets/images/card-img-4.png");
-  --background-image-card-5: url("/assets/images/card-img-5.png");
-  --background-image-card-6: url("/assets/images/card-img-6.png");
+  --background-image-hero: url("https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=2835&q=80");
+  --background-image-card-1: url("https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+  --background-image-card-2: url("https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+  --background-image-card-3: url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+  --background-image-card-4: url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+  --background-image-card-5: url("https://images.unsplash.com/photo-1542051841857-5f90071e7989?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+  --background-image-card-6: url("https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
   --background-image-linear100: linear-gradient(
-          105deg,
-          rgba(207, 241, 255, 0.8) 14.17%,
-          rgba(255, 255, 255, 0) 54.71%
+    105deg,
+    rgba(207, 241, 255, 0.8) 14.17%,
+    rgba(255, 255, 255, 0) 54.71%
   );
   --background-image-linear200: linear-gradient(
-          39deg,
-          rgba(3, 3, 3, 0.54) -3.66%,
-          rgba(6, 6, 6, 0) 45.57%
+    39deg,
+    rgba(3, 3, 3, 0.54) -3.66%,
+    rgba(6, 6, 6, 0) 45.57%
   );
-  --shadow-100:
-          0px 1px 3px 0px rgba(16, 24, 40, 0.1),
-          0px 1px 2px 0px rgba(16, 24, 40, 0.06);
-  --shadow-200:
-          0px 12px 16px -4px rgba(16, 24, 40, 0.1),
-          0px 4px 20px -2px rgba(16, 24, 40, 0.2);
+  --shadow-100: 0px 1px 3px 0px rgba(16, 24, 40, 0.1),
+    0px 1px 2px 0px rgba(16, 24, 40, 0.06);
+  --shadow-200: 0px 12px 16px -4px rgba(16, 24, 40, 0.1),
+    0px 4px 20px -2px rgba(16, 24, 40, 0.2);
   --shadow-300: 0px 2px 30px 0px rgba(0, 0, 0, 0.05);
   --shadow-400: 0px 2px 6px 0px rgba(13, 10, 44, 0.08);
   --shadow-500: 0px 12px 16px -4px rgba(16, 24, 40, 0.1);
@@ -85,12 +77,26 @@
   }
 
   .sign-in-card {
-    @apply flex bg-white flex-col border border-light-100 md:max-w-[510px] rounded-[20px] py-10 px-6 w-full;
+    @apply flex bg-white/95 flex-col border border-white/20 md:max-w-[510px] rounded-[24px] py-12 px-8 w-full relative;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    }
+
     header {
       @apply flex items-center gap-1.5 justify-center;
     }
     article {
-      @apply mt-9 mb-[30px] flex flex-col gap-3;
+      @apply mt-9 mb-[30px] flex flex-col gap-4;
     }
   }
   .info-pill {
@@ -110,7 +116,178 @@
     }
   }
   .auth {
-    @apply w-full h-screen flex bg-auth bg-cover bg-no-repeat;
+    @apply w-full h-screen flex;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+      url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")
+        center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .auth::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.3);stop-opacity:1" /><stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" /></radialGradient></defs><g opacity="0.4"><path d="M100 150 Q 200 120 300 150 Q 400 180 500 150" stroke="rgba(255,255,255,0.6)" stroke-width="3" fill="none"><animateTransform attributeName="transform" type="translate" values="0,0;1100,0;0,0" dur="18s" repeatCount="indefinite"/></path><circle cx="520" cy="150" r="8" fill="url(%23glow)"><animateTransform attributeName="transform" type="translate" values="0,0;1100,0;0,0" dur="18s" repeatCount="indefinite"/></circle><text x="535" y="158" fill="white" font-size="28" opacity="0.9">✈️</text><animateTransform attributeName="transform" type="translate" values="0,0;1100,0;0,0" dur="18s" repeatCount="indefinite"/></g><g opacity="0.35"><path d="M80 400 Q 180 370 280 400 Q 380 430 480 400" stroke="rgba(255,255,255,0.5)" stroke-width="2.5" fill="none"><animateTransform attributeName="transform" type="translate" values="1200,0;-300,0;1200,0" dur="22s" repeatCount="indefinite"/></path><circle cx="500" cy="400" r="6" fill="url(%23glow)"><animateTransform attributeName="transform" type="translate" values="1200,0;-300,0;1200,0" dur="22s" repeatCount="indefinite"/></circle><text x="512" y="408" fill="white" font-size="24" opacity="0.8">🪂</text><animateTransform attributeName="transform" type="translate" values="1200,0;-300,0;1200,0" dur="22s" repeatCount="indefinite"/></g><g opacity="0.3"><path d="M150 600 L 180 580 L 210 600 L 240 590 L 270 610 L 300 595" stroke="rgba(255,255,255,0.4)" stroke-width="2" fill="none"><animateTransform attributeName="transform" type="translate" values="-400,0;1400,0;-400,0" dur="28s" repeatCount="indefinite"/></path><circle cx="320" cy="595" r="5" fill="url(%23glow)"><animateTransform attributeName="transform" type="translate" values="-400,0;1400,0;-400,0" dur="28s" repeatCount="indefinite"/></circle><text x="330" y="603" fill="white" font-size="20" opacity="0.7">🥾</text><animateTransform attributeName="transform" type="translate" values="-400,0;1400,0;-400,0" dur="28s" repeatCount="indefinite"/></g><g opacity="0.4"><circle cx="200" cy="250" r="4" fill="rgba(255,255,255,0.6)"><animate attributeName="r" values="4;8;4" dur="3s" repeatCount="indefinite"/><animate attributeName="cx" values="200;1000;200" dur="25s" repeatCount="indefinite"/></circle><text x="210" y="258" fill="white" font-size="22" opacity="0.9">🏔️</text><animateTransform attributeName="transform" type="scale" values="1;1.2;1" dur="3s" repeatCount="indefinite"/><animate attributeName="x" values="210;1010;210" dur="25s" repeatCount="indefinite"/></g><g opacity="0.35"><circle cx="800" cy="450" r="3" fill="rgba(255,255,255,0.5)"><animate attributeName="r" values="3;6;3" dur="4s" repeatCount="indefinite"/><animate attributeName="cx" values="800;100;800" dur="30s" repeatCount="indefinite"/></circle><text x="810" y="458" fill="white" font-size="18" opacity="0.8">�️</text><animateTransform attributeName="transform" type="scale" values="1;1.3;1" dur="4s" repeatCount="indefinite"/><animate attributeName="x" values="810;110;810" dur="30s" repeatCount="indefinite"/></g><g opacity="0.3"><circle cx="600" cy="180" r="2" fill="rgba(255,255,255,0.4)"><animate attributeName="r" values="2;5;2" dur="5s" repeatCount="indefinite"/><animate attributeName="cx" values="600;50;600" dur="35s" repeatCount="indefinite"/></circle><text x="608" y="188" fill="white" font-size="16" opacity="0.7">🗻</text><animate attributeName="x" values="608;58;608" dur="35s" repeatCount="indefinite"/></g><g opacity="0.25"><path d="M300 300 Q 350 280 400 300 Q 450 320 500 300 Q 550 280 600 300" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none" opacity="0.6"><animateTransform attributeName="transform" type="translate" values="0,100;0,-100;0,100" dur="8s" repeatCount="indefinite"/></path><text x="320" y="310" fill="white" font-size="14" opacity="0.6">�</text><animateTransform attributeName="transform" type="translate" values="0,100;0,-100;0,100" dur="8s" repeatCount="indefinite"/></g></svg>')
+      center/cover;
+    z-index: 1;
+  }
+
+  .auth::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      transparent 100%
+    );
+    border-radius: 50%;
+    top: 15%;
+    right: 8%;
+    animation: float 6s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  /* Additional floating elements */
+  .auth .floating-element-1 {
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    font-size: 2.5rem;
+    opacity: 0.3;
+    animation: float 8s ease-in-out infinite, rotate 20s linear infinite;
+    z-index: 1;
+  }
+
+  .auth .floating-element-2 {
+    position: absolute;
+    bottom: 20%;
+    right: 15%;
+    font-size: 2rem;
+    opacity: 0.25;
+    animation: float 10s ease-in-out infinite reverse,
+      bounce 4s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  .auth .floating-element-3 {
+    position: absolute;
+    top: 60%;
+    left: 8%;
+    font-size: 1.8rem;
+    opacity: 0.2;
+    animation: float 12s ease-in-out infinite, pulse 3s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.2;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes fly {
+    0% {
+      transform: translateX(-100px) translateY(50vh);
+    }
+    25% {
+      transform: translateX(25vw) translateY(20vh) rotate(15deg);
+    }
+    50% {
+      transform: translateX(50vw) translateY(70vh) rotate(-10deg);
+    }
+    75% {
+      transform: translateX(75vw) translateY(30vh) rotate(20deg);
+    }
+    100% {
+      transform: translateX(calc(100vw + 100px)) translateY(60vh) rotate(0deg);
+    }
+  }
+
+  @keyframes mapPulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes mapGlow {
+    0%,
+    100% {
+      filter: drop-shadow(0 0 5px rgba(239, 68, 68, 0.5));
+    }
+    50% {
+      filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.8));
+    }
+  }
+
+  .auth > * {
+    position: relative;
+    z-index: 2;
   }
 
   .payment-success {
@@ -439,6 +616,40 @@
   }
   .button-class {
     @apply !bg-primary-100 !px-4 !rounded-lg !flex !items-center !justify-center !gap-1.5 !shadow-none;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    &:active {
+      transform: translateY(0px);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      transition: left 0.6s;
+    }
+
+    &:hover::before {
+      left: 100%;
+    }
   }
   .button-class-secondary {
     @apply !bg-white !px-4 !rounded-lg !flex !items-center !justify-center !gap-1.5 !shadow-sm;
@@ -467,6 +678,35 @@
   .combo-box {
     @apply !p-3.5 !border w-full !border-light-400 !rounded-xl !text-base !text-dark-300 !font-normal;
   }
+
+  /* Background image utilities */
+  .bg-hero {
+    background-image: var(--background-image-hero);
+  }
+  .bg-card-1 {
+    background-image: var(--background-image-card-1);
+  }
+  .bg-card-2 {
+    background-image: var(--background-image-card-2);
+  }
+  .bg-card-3 {
+    background-image: var(--background-image-card-3);
+  }
+  .bg-card-4 {
+    background-image: var(--background-image-card-4);
+  }
+  .bg-card-5 {
+    background-image: var(--background-image-card-5);
+  }
+  .bg-card-6 {
+    background-image: var(--background-image-card-6);
+  }
+  .bg-linear100 {
+    background-image: var(--background-image-linear100);
+  }
+  .bg-linear200 {
+    background-image: var(--background-image-linear200);
+  }
 }
 
 html,
@@ -477,9 +717,11 @@ body {
 }
 
 .glassmorphism {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  background: rgba(255, 255, 255, 0.15);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
 /* ======== css overrides for syncfusion ========= */
@@ -517,9 +759,8 @@ body {
   border-radius: 6px;
   border: 1px solid #f0fef9;
   background: #ffffff;
-  box-shadow:
-          0px 0px 3px 0px rgba(16, 24, 40, 0.1),
-          0px 0px 2px 0px rgba(16, 24, 40, 0.06);
+  box-shadow: 0px 0px 3px 0px rgba(16, 24, 40, 0.1),
+    0px 0px 2px 0px rgba(16, 24, 40, 0.06);
   height: 40px;
 }
 
@@ -527,9 +768,8 @@ body {
   border-radius: 8px;
   border: 1px solid #eaecf0;
   background: #fff;
-  box-shadow:
-          0px 12px 16px -4px rgba(16, 24, 40, 0.1),
-          0px 4px 20px -2px rgba(16, 24, 40, 0.2);
+  box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.1),
+    0px 4px 20px -2px rgba(16, 24, 40, 0.2);
 }
 .e-dropdown-popup ul .e-item {
   padding-left: 36px;
