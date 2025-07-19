@@ -23,11 +23,6 @@ export async function clientLoader() {
 const SignIn = () => {
   return (
     <main className="auth">
-      {/* Floating decorative elements */}
-      <div className="floating-element-1">🧳</div>
-      <div className="floating-element-2">🗺️</div>
-      <div className="floating-element-3">🎒</div>
-
       <section className="size-full glassmorphism flex-center px-6">
         <div className="sign-in-card">
           <header className="header">
