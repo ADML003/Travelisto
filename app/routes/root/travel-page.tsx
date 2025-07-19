@@ -1,7 +1,7 @@
 import { Link, type LoaderFunctionArgs, useSearchParams } from "react-router";
 import { Button } from "../../../components/ui/Button";
 import { cn, parseTripData } from "~/lib/utils";
-import { Header, TripCard } from "../../../components";
+import { Header, TripCard, CinematicSlider } from "../../../components";
 import { getAllTrips } from "~/appwrite/trips";
 import type { Route } from "../../../.react-router/types/app/routes/admin/+types/trips";
 import { useState } from "react";
@@ -98,6 +98,76 @@ const TravelPage = ({ loaderData }: Route.ComponentProps) => {
     window.location.search = `?page=${page}`;
   };
 
+  // Cinematic image slider data for trending destinations
+  const trendingDestinations = [
+    {
+      id: "barcelona",
+      imageUrl:
+        "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2835&q=80",
+      location: "Barcelona",
+      country: "Spain",
+      description:
+        "Experience the vibrant culture, stunning architecture, and Mediterranean charm of Barcelona. From Gaudí's masterpieces to the Gothic Quarter's narrow streets, discover a city where art and history come alive.",
+      rating: 4.8,
+      activities: 247,
+    },
+    {
+      id: "tokyo",
+      imageUrl:
+        "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2835&q=80",
+      location: "Tokyo",
+      country: "Japan",
+      description:
+        "Dive into the electric energy of Tokyo, where ancient traditions meet cutting-edge technology. Discover hidden temples nestled between neon-lit skyscrapers, world-class cuisine, and the perfect harmony of old and new.",
+      rating: 4.9,
+      activities: 456,
+    },
+    {
+      id: "santorini",
+      imageUrl:
+        "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2835&q=80",
+      location: "Santorini",
+      country: "Greece",
+      description:
+        "Witness the most breathtaking sunsets over the Aegean Sea from the iconic whitewashed cliffs of Santorini. Explore volcanic beaches, charming villages, and indulge in world-renowned Greek hospitality.",
+      rating: 4.7,
+      activities: 89,
+    },
+    {
+      id: "iceland",
+      imageUrl:
+        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2835&q=80",
+      location: "Reykjavik",
+      country: "Iceland",
+      description:
+        "Journey through the mystical land of fire and ice. Experience the ethereal Northern Lights, powerful geysers, and dramatic landscapes that make Iceland a photographer's paradise and nature lover's dream.",
+      rating: 4.6,
+      activities: 134,
+    },
+    {
+      id: "bali",
+      imageUrl:
+        "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=2835&q=80",
+      location: "Ubud",
+      country: "Bali, Indonesia",
+      description:
+        "Find serenity in the cultural heart of Bali, surrounded by emerald rice terraces and ancient temples. Immerse yourself in a vibrant arts scene, traditional crafts, and spiritual experiences that will captivate your soul.",
+      rating: 4.5,
+      activities: 298,
+    },
+    {
+      id: "patagonia",
+      imageUrl:
+        "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2835&q=80",
+      location: "Patagonia",
+      country: "Chile & Argentina",
+      description:
+        "Explore one of Earth's last wild frontiers, where towering glaciers meet pristine lakes and jagged peaks pierce the sky. Patagonia offers unparalleled adventure and some of the planet's most pristine wilderness.",
+      rating: 4.9,
+      activities: 156,
+    },
+  ];
+
   return (
     <main className="flex flex-col">
       <section className="travel-hero">
@@ -129,63 +199,20 @@ const TravelPage = ({ loaderData }: Route.ComponentProps) => {
         </div>
       </section>
 
-      <section className="pt-20 wrapper flex flex-col gap-10 h-full">
-        <Header
-          title="🌟 Trending Travel Experiences"
-          description="Discover the world's most captivating destinations, handpicked by our travel experts and loved by adventurers like you! 🏖️🏔️"
-        />
-        <div className="featured">
-          <article>
-            <FeaturedDestination
-              bgImage="bg-card-1"
-              containerClass="h-1/3 lg:h-1/2"
-              bigCard
-              title="Barcelona Tour"
-              rating={4.2}
-              activityCount={196}
-            />
+      <section className="pt-20 flex flex-col gap-10 h-full">
+        <div className="wrapper">
+          <Header
+            title="🌟 Trending Travel Experiences"
+            description="Discover the world's most captivating destinations through immersive video experiences. Each destination is handpicked by our travel experts and loved by adventurers like you! 🏖️🏔️"
+          />
+        </div>
 
-            <div className="travel-featured">
-              <FeaturedDestination
-                bgImage="bg-card-2"
-                bigCard
-                title="London"
-                rating={4.5}
-                activityCount={512}
-              />
-              <FeaturedDestination
-                bgImage="bg-card-3"
-                bigCard
-                title="Australia Tour"
-                rating={3.5}
-                activityCount={250}
-              />
-            </div>
-          </article>
-
-          <div className="flex flex-col gap-[30px]">
-            <FeaturedDestination
-              containerClass="w-full h-[240px]"
-              bgImage="bg-card-4"
-              title="Spain Tour"
-              rating={3.8}
-              activityCount={150}
-            />
-            <FeaturedDestination
-              containerClass="w-full h-[240px]"
-              bgImage="bg-card-5"
-              title="Japan"
-              rating={5}
-              activityCount={150}
-            />
-            <FeaturedDestination
-              containerClass="w-full h-[240px]"
-              bgImage="bg-card-6"
-              title="Italy Tour"
-              rating={4.2}
-              activityCount={500}
-            />
-          </div>
+        <div className="w-full px-4 lg:px-8">
+          <CinematicSlider
+            slides={trendingDestinations}
+            autoPlay={true}
+            autoPlayInterval={6000}
+          />
         </div>
       </section>
 

@@ -126,13 +126,15 @@ import { redirect } from "react-router";
 // Function to initiate OAuth login with Google
 export const loginWithGoogle = async () => {
   try {
+    console.log("Initiating Google OAuth login");
     await account.createOAuth2Session(
       OAuthProvider.Google,
       `${window.location.origin}/`,
-      `${window.location.origin}/404`
+      `${window.location.origin}/sign-in`
     );
   } catch (error) {
     console.error("Error during OAuth2 session creation:", error);
+    throw error;
   }
 };
 
@@ -141,6 +143,10 @@ export const storeUserData = async () => {
   try {
     const user = await account.get();
     if (!user) throw new Error("User not found");
+
+    // Check if user already exists to avoid duplicates
+    const existingUser = await getExistingUser(user.$id);
+    if (existingUser) return existingUser;
 
     // Fetch session to get the JWT token
     const { providerAccessToken } = (await account.getSession("current")) || {};
@@ -162,9 +168,14 @@ export const storeUserData = async () => {
       }
     );
 
-    if (!createdUser.$id) redirect("/sign-in");
+    if (!createdUser.$id) {
+      throw new Error("Failed to create user document");
+    }
+
+    return createdUser;
   } catch (error) {
     console.error("Error storing user data:", error);
+    throw error;
   }
 };
 

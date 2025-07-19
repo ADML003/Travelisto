@@ -6,14 +6,33 @@ import { LoadingSpinner } from "../../../components";
 
 export async function clientLoader() {
   try {
+    console.log("Page layout loader - Getting user");
     const user = await account.get();
+    console.log("Page layout loader - User:", user?.$id);
 
-    if (!user.$id) return redirect("/sign-in");
+    if (!user.$id) {
+      console.log("No user ID, redirecting to sign-in");
+      return redirect("/sign-in");
+    }
 
+    console.log("Checking for existing user in database");
     const existingUser = await getExistingUser(user.$id);
-    return existingUser?.$id ? existingUser : await storeUserData();
+    console.log("Existing user:", existingUser?.$id);
+
+    if (existingUser?.$id) {
+      console.log("Returning existing user");
+      return existingUser;
+    } else {
+      console.log("Storing new user data");
+      // Store user data and then return the user
+      await storeUserData();
+      // After storing, get the user again
+      const newUser = await getExistingUser(user.$id);
+      console.log("New user stored:", newUser?.$id);
+      return newUser || user;
+    }
   } catch (e) {
-    console.log("Error fetching user", e);
+    console.error("Error in page layout loader:", e);
     return redirect("/sign-in");
   }
 }

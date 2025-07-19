@@ -7,11 +7,17 @@ import { account } from "~/appwrite/client";
 export async function clientLoader() {
   try {
     const user = await account.get();
+    console.log("Sign-in loader - User found:", user?.$id);
 
-    if (user.$id) return redirect("/");
+    if (user.$id) {
+      console.log("User authenticated, redirecting to home");
+      return redirect("/");
+    }
   } catch (e) {
-    console.log("Error fetching user", e);
+    console.log("No authenticated user found", e);
   }
+
+  return null;
 }
 
 const SignIn = () => {

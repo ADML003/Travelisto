@@ -64,7 +64,12 @@ export const action = async ({ request }: ActionFunctionArgs) => {
         Interests: '${interests}'
         TravelStyle: '${travelStyle}'
         GroupType: '${groupType}'
-        Return the itinerary and lowest estimated price in a clean, non-markdown JSON format with the following structure:
+        
+        IMPORTANT: Return ONLY valid JSON enclosed in markdown code blocks. Ensure all objects in arrays have proper comma separation and all JSON syntax is correct.
+        
+        Return the itinerary and lowest estimated price in a clean, valid JSON format with the following structure:
+        
+        \`\`\`json
         {
         "name": "A descriptive title for the trip",
         "description": "A brief description of the trip and its highlights not exceeding 100 words",
@@ -73,19 +78,19 @@ export const action = async ({ request }: ActionFunctionArgs) => {
         "budget": "${budget}",
         "travelStyle": "${travelStyle}",
         "country": "${country}",
-        "interests": ${interests},
+        "interests": "${interests}",
         "groupType": "${groupType}",
         "bestTimeToVisit": [
-          '🌸 Season (from month to month): reason to visit',
-          '☀️ Season (from month to month): reason to visit',
-          '🍁 Season (from month to month): reason to visit',
-          '❄️ Season (from month to month): reason to visit'
+          "🌸 Season (from month to month): reason to visit",
+          "☀️ Season (from month to month): reason to visit",
+          "🍁 Season (from month to month): reason to visit",
+          "❄️ Season (from month to month): reason to visit"
         ],
         "weatherInfo": [
-          '☀️ Season: temperature range in Celsius (temperature range in Fahrenheit)',
-          '🌦️ Season: temperature range in Celsius (temperature range in Fahrenheit)',
-          '🌧️ Season: temperature range in Celsius (temperature range in Fahrenheit)',
-          '❄️ Season: temperature range in Celsius (temperature range in Fahrenheit)'
+          "☀️ Season: temperature range in Celsius (temperature range in Fahrenheit)",
+          "🌦️ Season: temperature range in Celsius (temperature range in Fahrenheit)",
+          "🌧️ Season: temperature range in Celsius (temperature range in Fahrenheit)",
+          "❄️ Season: temperature range in Celsius (temperature range in Fahrenheit)"
         ],
         "location": {
           "city": "name of the city or region",
@@ -101,10 +106,12 @@ export const action = async ({ request }: ActionFunctionArgs) => {
             {"time": "Afternoon", "description": "🖼️ Explore a famous art museum with a guided tour"},
             {"time": "Evening", "description": "🍷 Dine at a rooftop restaurant with local wine"}
           ]
-        },
-        ...
+        }
         ]
-    }`;
+    }
+    \`\`\`
+    
+    Ensure every object in the activities array follows this exact structure with "time" and "description" properties. Make sure all commas and brackets are properly placed.`;
 
     console.log("Sending request to Gemini AI...");
     const textResult = await genAI

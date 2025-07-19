@@ -16,9 +16,39 @@ export function parseMarkdownToJson(markdownText: string): unknown | null {
 
   if (match && match[1]) {
     try {
-      return JSON.parse(match[1]);
+      let jsonString = match[1].trim();
+
+      // First, try to parse as-is
+      try {
+        return JSON.parse(jsonString);
+      } catch (initialError) {
+        console.log("Initial parse failed, attempting to fix common issues...");
+
+        // Fix common AI-generated JSON issues
+        // 1. Fix malformed "time": "Evening": "text" pattern (double colons)
+        jsonString = jsonString.replace(
+          /{"time":\s*"([^"]+)":\s*"([^"]+)"}/g,
+          '{"time": "$1", "description": "$2"}'
+        );
+
+        // 2. Fix standalone "Evening": "text" patterns in activities arrays
+        jsonString = jsonString.replace(
+          /"(Morning|Afternoon|Evening)":\s*"([^"]+)"/g,
+          '{"time": "$1", "description": "$2"}'
+        );
+
+        // 3. Ensure proper comma separation in arrays
+        jsonString = jsonString.replace(/}\s*\n\s*{/g, "},\n        {");
+
+        // 4. Fix missing commas before closing array brackets
+        jsonString = jsonString.replace(/"\s*}\s*\]/g, '"}]');
+
+        console.log("Attempting to parse cleaned JSON...");
+        return JSON.parse(jsonString);
+      }
     } catch (error) {
-      console.error("Error parsing JSON:", error);
+      console.error("Error parsing JSON after cleanup attempts:", error);
+      console.error("Original JSON:", match[1]);
       return null;
     }
   }

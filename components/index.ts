@@ -5,3 +5,4 @@ export { default as StatsCard } from "./StatsCard";
 export { default as TripCard } from "./TripCard";
 export { default as InfoPill } from "./InfoPill";
 export { LoadingSpinner } from "./ui/LoadingSpinner";
+export { CinematicSlider } from "./CinematicSlider";
