@@ -1,4 +1,4 @@
-import { Link, redirect } from "react-router";
+import { Link, redirect, useSearchParams } from "react-router";
 import { Button } from "../../../components/ui/Button";
 import { LoadingSpinner } from "../../../components";
 import { loginWithGoogle } from "~/appwrite/auth";
@@ -10,31 +10,23 @@ export async function clientLoader() {
     console.log("Sign-in loader - User found:", user?.$id);
 
     if (user.$id) {
-      // Force a full reload to ensure session cookies are picked up (especially on mobile)
-      if (typeof window !== "undefined") {
-        window.location.href = "/";
-        return null;
-      }
+      // User is authenticated, redirect to home page
       return redirect("/");
     }
   } catch (e) {
-    // If unauthorized, redirect to sign-in
-    // Appwrite 401 errors have a 'type' property and a message
-    if (e && typeof e === "object" && "code" in e && e.code === 401) {
-      if (typeof window !== "undefined") {
-        window.location.href = "/sign-in";
-        return null;
-      }
-      return redirect("/sign-in");
-    }
-    // Optionally log or handle other errors
-    console.log("No authenticated user found", e);
+    // If there's an error getting the user (like 401 unauthorized), 
+    // it means user is not authenticated, so we stay on sign-in page
+    console.log("No authenticated user found, staying on sign-in page");
   }
 
+  // User is not authenticated, stay on sign-in page
   return null;
 }
 
 const SignIn = () => {
+  const [searchParams] = useSearchParams();
+  const oauthError = searchParams.get("error");
+
   return (
     <main className="auth">
       <section className="size-full glassmorphism flex-center px-6">
@@ -59,6 +51,16 @@ const SignIn = () => {
               Sign in with Google to manage destinations, itineraries, and user
               activity with ease.
             </p>
+
+            {oauthError && (
+              <div className="bg-red-50 border border-red-200 rounded-lg p-3 mt-4">
+                <p className="text-red-700 text-sm text-center">
+                  {oauthError === "oauth_failed" 
+                    ? "Sign-in was cancelled or failed. Please try again." 
+                    : "An error occurred during sign-in. Please try again."}
+                </p>
+              </div>
+            )}
           </article>
 
           <Button

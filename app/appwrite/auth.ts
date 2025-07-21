@@ -127,14 +127,24 @@ import { redirect } from "react-router";
 export const loginWithGoogle = async () => {
   try {
     console.log("Initiating Google OAuth login");
+    
+    // Get the current origin for redirect URLs
+    const origin = typeof window !== "undefined" ? window.location.origin : "";
+    
     await account.createOAuth2Session(
       OAuthProvider.Google,
-      `${window.location.origin}/`,
-      `${window.location.origin}/sign-in`
+      `${origin}/`,
+      `${origin}/sign-in?error=oauth_failed`
     );
   } catch (error) {
     console.error("Error during OAuth2 session creation:", error);
-    throw error;
+    
+    // Don't throw the error as it might be expected behavior
+    // (user canceling OAuth, etc.)
+    if (typeof window !== "undefined") {
+      // Optionally show a user-friendly error message
+      console.log("OAuth login was cancelled or failed");
+    }
   }
 };
 
