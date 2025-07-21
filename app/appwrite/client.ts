@@ -16,6 +16,17 @@ if (!appwriteConfig.endpointUrl || !appwriteConfig.projectId) {
   );
 }
 
+// Warn if endpoint is not HTTPS or is localhost in production (important for cookies on mobile)
+if (
+  typeof window !== "undefined" &&
+  window.location.hostname !== "localhost" &&
+  (!appwriteConfig.endpointUrl.startsWith("https://") || appwriteConfig.endpointUrl.includes("localhost"))
+) {
+  console.warn(
+    "[Appwrite] Your endpoint is not HTTPS or is localhost in production. This will break authentication cookies on mobile browsers. Please use a public HTTPS endpoint for Appwrite."
+  );
+}
+
 const client = new Client()
   .setEndpoint(appwriteConfig.endpointUrl)
   .setProject(appwriteConfig.projectId);
