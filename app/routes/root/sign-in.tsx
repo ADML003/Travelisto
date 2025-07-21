@@ -10,7 +10,11 @@ export async function clientLoader() {
     console.log("Sign-in loader - User found:", user?.$id);
 
     if (user.$id) {
-      console.log("User authenticated, redirecting to home");
+      // Force a full reload to ensure session cookies are picked up (especially on mobile)
+      if (typeof window !== "undefined") {
+        window.location.href = "/";
+        return null;
+      }
       return redirect("/");
     }
   } catch (e) {
