@@ -20,7 +20,7 @@ export async function clientLoader() {
   } catch (e) {
     // If unauthorized, redirect to sign-in
     // Appwrite 401 errors have a 'type' property and a message
-    if (e && typeof e === 'object' && ('code' in e) && (e.code === 401)) {
+    if (e && typeof e === "object" && "code" in e && e.code === 401) {
       if (typeof window !== "undefined") {
         window.location.href = "/sign-in";
         return null;
