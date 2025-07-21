@@ -18,6 +18,16 @@ export async function clientLoader() {
       return redirect("/");
     }
   } catch (e) {
+    // If unauthorized, redirect to sign-in
+    // Appwrite 401 errors have a 'type' property and a message
+    if (e && typeof e === 'object' && ('code' in e) && (e.code === 401)) {
+      if (typeof window !== "undefined") {
+        window.location.href = "/sign-in";
+        return null;
+      }
+      return redirect("/sign-in");
+    }
+    // Optionally log or handle other errors
     console.log("No authenticated user found", e);
   }
 
