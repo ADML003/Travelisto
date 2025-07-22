@@ -14,7 +14,7 @@ export async function clientLoader() {
       return redirect("/");
     }
   } catch (e) {
-    // If there's an error getting the user (like 401 unauthorized), 
+    // If there's an error getting the user (like 401 unauthorized),
     // it means user is not authenticated, so we stay on sign-in page
     console.log("No authenticated user found, staying on sign-in page");
   }
@@ -55,8 +55,8 @@ const SignIn = () => {
             {oauthError && (
               <div className="bg-red-50 border border-red-200 rounded-lg p-3 mt-4">
                 <p className="text-red-700 text-sm text-center">
-                  {oauthError === "oauth_failed" 
-                    ? "Sign-in was cancelled or failed. Please try again." 
+                  {oauthError === "oauth_failed"
+                    ? "Sign-in was cancelled or failed. Please try again."
                     : "An error occurred during sign-in. Please try again."}
                 </p>
               </div>
@@ -82,6 +82,8 @@ const SignIn = () => {
     </main>
   );
 };
+// sign in.tsx
+// This file handles the sign-in page and client-side authentication check
 
 export function ClientLoaderFallback() {
   return (
