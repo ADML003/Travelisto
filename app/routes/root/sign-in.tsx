@@ -84,6 +84,8 @@ const SignIn = () => {
 };
 // sign in.tsx
 // This file handles the sign-in page and client-side authentication check
+// it redirects authenticated users to the home page.
+// If the user is not authenticated, it displays the sign-in form.
 
 export function ClientLoaderFallback() {
   return (
