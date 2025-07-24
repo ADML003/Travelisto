@@ -26,6 +26,7 @@ export function parseMarkdownToJson(markdownText: string): unknown | null {
 
         // Fix common AI-generated JSON issues
         // 1. Fix malformed "time": "Evening": "text" pattern (double colons)
+        //    This pattern is common in AI-generated JSON where the time and description are not properly formatted.
         jsonString = jsonString.replace(
           /{"time":\s*"([^"]+)":\s*"([^"]+)"}/g,
           '{"time": "$1", "description": "$2"}'
