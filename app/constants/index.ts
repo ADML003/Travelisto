@@ -225,3 +225,5 @@ export const users = [
     status: "admin",
   },
 ];
+
+// TripFormData type definition
