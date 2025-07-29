@@ -82,8 +82,6 @@ const SignIn = () => {
     </main>
   );
 };
-// sign in.tsx
-// This file handles the sign-in page and client-side authentication check
 
 
 export function ClientLoaderFallback() {
