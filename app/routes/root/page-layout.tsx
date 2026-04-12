@@ -1,16 +1,20 @@
 import { Outlet, redirect, useNavigate } from "react-router";
-import { getExistingUser, logoutUser, storeUserData } from "~/appwrite/auth";
-import { account } from "~/appwrite/client";
+import {
+  getCurrentAccount,
+  getExistingUser,
+  logoutUser,
+  storeUserData,
+} from "~/appwrite/auth";
 import RootNavbar from "../../../components/RootNavbar";
 import { LoadingSpinner } from "../../../components";
 
 export async function clientLoader() {
   try {
     console.log("Page layout loader - Getting user");
-    const user = await account.get();
+    const user = await getCurrentAccount();
     console.log("Page layout loader - User:", user?.$id);
 
-    if (!user.$id) {
+    if (!user?.$id) {
       console.log("No user ID, redirecting to sign-in");
       return redirect("/sign-in");
     }
@@ -65,9 +69,7 @@ export function ClientLoaderFallback() {
       <div className="flex flex-col items-center gap-4">
         <LoadingSpinner size="lg" text="Authenticating..." />
         <div className="text-center">
-          <p className="text-gray-600 text-sm">
-            Verifying your session...
-          </p>
+          <p className="text-gray-600 text-sm">Verifying your session...</p>
         </div>
       </div>
     </div>
@@ -85,7 +87,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
           There was a problem with authentication. Please try signing in again.
         </p>
         <button
-          onClick={() => window.location.href = '/sign-in'}
+          onClick={() => (window.location.href = "/sign-in")}
           className="bg-primary-100 text-white px-4 py-2 rounded hover:bg-primary-200 transition-colors"
         >
           Go to Sign In

@@ -2,6 +2,7 @@ import {type RouteConfig, route, layout, index} from "@react-router/dev/routes";
 
 export default [
     route('sign-in', 'routes/root/sign-in.tsx'),
+    route('auth/callback', 'routes/root/auth-callback.tsx'),
     route('api/create-trip', 'routes/api/create-trip.ts'),
     layout("routes/admin/admin-layout.tsx", [
         route('dashboard', 'routes/admin/dashboard.tsx'),
