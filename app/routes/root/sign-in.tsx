@@ -57,7 +57,7 @@ const SignIn = () => {
                   {oauthError === "oauth_failed"
                     ? "Sign-in was cancelled or failed. Please try again."
                     : oauthError === "session_unavailable"
-                    ? "We could not establish a session on this browser. Please allow cookies and try again."
+                      ? "We could not establish a session on this browser. Please allow cookies and try again."
                     : "An error occurred during sign-in. Please try again."}
                 </p>
               </div>
