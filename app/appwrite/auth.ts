@@ -123,58 +123,22 @@ import { ID, OAuthProvider, Query } from "appwrite";
 import { account, database, appwriteConfig } from "~/appwrite/client";
 import { redirect } from "react-router";
 
-const isAuthError = (error: unknown) => {
-  return (
-    typeof error === "object" &&
-    error !== null &&
-    "code" in error &&
-    Number((error as { code?: unknown }).code) === 401
-  );
-};
-
-const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-// Mobile browsers can take a short moment after OAuth redirect before
-// Appwrite session cookies are available in account.get().
-export const getCurrentAccount = async (
-  maxAttempts = 10,
-  retryDelayMs = 300,
-) => {
-  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-    try {
-      const user = await account.get();
-      if (user?.$id) return user;
-    } catch (error) {
-      if (!isAuthError(error)) throw error;
-
-      if (attempt === maxAttempts) {
-        return null;
-      }
-
-      const backoffDelay = retryDelayMs * Math.min(attempt, 6);
-      await wait(backoffDelay);
-    }
-  }
-
-  return null;
-};
-
 // Function to initiate OAuth login with Google
 export const loginWithGoogle = async () => {
   try {
     console.log("Initiating Google OAuth login");
-
+    
     // Get the current origin for redirect URLs
     const origin = typeof window !== "undefined" ? window.location.origin : "";
-
+    
     await account.createOAuth2Session(
       OAuthProvider.Google,
-      `${origin}/auth/callback`,
-      `${origin}/sign-in?error=oauth_failed`,
+      `${origin}/`,
+      `${origin}/sign-in?error=oauth_failed`
     );
   } catch (error) {
     console.error("Error during OAuth2 session creation:", error);
-
+    
     // Don't throw the error as it might be expected behavior
     // (user canceling OAuth, etc.)
     if (typeof window !== "undefined") {
@@ -211,7 +175,7 @@ export const storeUserData = async () => {
         name: user.name,
         imageUrl: profilePicture,
         joinedAt: new Date().toISOString(),
-      },
+      }
     );
 
     if (!createdUser.$id) {
@@ -230,7 +194,7 @@ const getGooglePicture = async (accessToken: string) => {
   try {
     const response = await fetch(
       "https://people.googleapis.com/v1/people/me?personFields=photos",
-      { headers: { Authorization: `Bearer ${accessToken}` } },
+      { headers: { Authorization: `Bearer ${accessToken}` } }
     );
     if (!response.ok) throw new Error("Failed to fetch Google profile picture");
 
@@ -281,7 +245,7 @@ export const getExistingUser = async (id: string) => {
     const { documents, total } = await database.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.userCollectionId,
-      [Query.equal("accountId", id)],
+      [Query.equal("accountId", id)]
     );
     return total > 0 ? documents[0] : null;
   } catch (error) {
@@ -296,7 +260,7 @@ export const getAllUsers = async (limit: number, offset: number) => {
     const { documents: users, total } = await database.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.userCollectionId,
-      [Query.limit(limit), Query.offset(offset)],
+      [Query.limit(limit), Query.offset(offset)]
     );
 
     if (total === 0) return { users: [], total };
@@ -311,8 +275,8 @@ export const getAllUsers = async (limit: number, offset: number) => {
 // Function to get the user data from the database by their Appwrite account ID
 export const getUser = async () => {
   try {
-    const user = await getCurrentAccount();
-    if (!user?.$id) throw redirect("/sign-in");
+    const user = await account.get();
+    if (!user) return redirect("/sign-in");
 
     const { documents } = await database.listDocuments(
       appwriteConfig.databaseId,
@@ -320,17 +284,11 @@ export const getUser = async () => {
       [
         Query.equal("accountId", user.$id),
         Query.select(["name", "email", "imageUrl", "joinedAt", "accountId"]),
-      ],
+      ]
     );
 
-    if (documents.length === 0) throw redirect("/sign-in");
-
-    return documents[0];
+    return documents.length > 0 ? documents[0] : redirect("/sign-in");
   } catch (error) {
-    if (error instanceof Response) throw error;
-
-    if (isAuthError(error)) throw redirect("/sign-in");
-
     console.error("Error fetching user:", error);
     return null;
   }

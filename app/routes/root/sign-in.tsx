@@ -1,14 +1,15 @@
 import { Link, redirect, useSearchParams } from "react-router";
 import { Button } from "../../../components/ui/Button";
 import { LoadingSpinner } from "../../../components";
-import { getCurrentAccount, loginWithGoogle } from "~/appwrite/auth";
+import { loginWithGoogle } from "~/appwrite/auth";
+import { account } from "~/appwrite/client";
 
 export async function clientLoader() {
   try {
-    const user = await getCurrentAccount(12, 350);
+    const user = await account.get();
     console.log("Sign-in loader - User found:", user?.$id);
 
-    if (user?.$id) {
+    if (user.$id) {
       // User is authenticated, redirect to home page
       return redirect("/");
     }
@@ -56,8 +57,6 @@ const SignIn = () => {
                 <p className="text-red-700 text-sm text-center">
                   {oauthError === "oauth_failed"
                     ? "Sign-in was cancelled or failed. Please try again."
-                    : oauthError === "session_unavailable"
-                      ? "We could not establish a session on this browser. Please allow cookies and try again."
                     : "An error occurred during sign-in. Please try again."}
                 </p>
               </div>
@@ -83,6 +82,7 @@ const SignIn = () => {
     </main>
   );
 };
+
 
 export function ClientLoaderFallback() {
   return (
