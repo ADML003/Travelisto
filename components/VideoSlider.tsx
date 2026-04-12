@@ -3,7 +3,7 @@ import { cn } from "~/lib/utils";
 
 interface ImageSlideData {
   id: string;
-  imageUrl: string;
+  videoUrl: string;
   location: string;
   country: string;
   description: string;
@@ -11,7 +11,7 @@ interface ImageSlideData {
   activities: number;
 }
 
-interface CinematicSliderProps {
+interface VideoSliderProps {
   slides: ImageSlideData[];
   autoPlay?: boolean;
   autoPlayInterval?: number;

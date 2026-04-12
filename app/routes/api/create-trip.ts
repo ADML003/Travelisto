@@ -132,17 +132,17 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
     const imageResponse = await fetch(
       `https://api.unsplash.com/search/photos?query=${encodeURIComponent(
-        country
+        country,
       )} ${encodeURIComponent(interests)} ${encodeURIComponent(
-        travelStyle
-      )}&client_id=${unsplashApiKey}`
+        travelStyle,
+      )}&client_id=${unsplashApiKey}`,
     );
 
     if (!imageResponse.ok) {
       console.error(
         "Failed to fetch images from Unsplash:",
         imageResponse.status,
-        imageResponse.statusText
+        imageResponse.statusText,
       );
       // Continue without images rather than failing
     }
@@ -171,7 +171,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
         createdAt: new Date().toISOString(),
         imageUrls,
         userId,
-      }
+      },
     );
 
     console.log("Trip document created successfully:", result.$id);
@@ -180,29 +180,44 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     const tripPrice =
       parseInt(tripDetail.estimatedPrice.replace(/[^0-9]/g, ""), 10) || 100; // Default to 100 if parsing fails
 
-    console.log("Creating payment link...");
+    try {
+      console.log("Creating payment link...");
 
-    const paymentLink = await createProduct(
-      tripDetail.name,
-      tripDetail.description,
-      imageUrls,
-      tripPrice,
-      result.$id
-    );
+      const paymentLink = await createProduct(
+        tripDetail.name,
+        tripDetail.description,
+        imageUrls,
+        tripPrice,
+        result.$id,
+      );
 
-    console.log("Payment link created successfully");
+      console.log("Payment link created successfully");
 
-    await database.updateDocument(
-      appwriteConfig.databaseId,
-      appwriteConfig.tripCollectionId,
-      result.$id,
-      {
-        payment_link: paymentLink.url,
-      }
-    );
+      await database.updateDocument(
+        appwriteConfig.databaseId,
+        appwriteConfig.tripCollectionId,
+        result.$id,
+        {
+          payment_link: paymentLink.url,
+        },
+      );
 
-    console.log("Trip generation completed successfully:", result.$id);
-    return data({ id: result.$id });
+      console.log("Trip generation completed successfully:", result.$id);
+      return data({ id: result.$id });
+    } catch (paymentError) {
+      console.error(
+        "Payment link setup failed for trip:",
+        result.$id,
+        paymentError,
+      );
+
+      // Return the created trip ID even when payment setup fails so the trip flow remains usable.
+      return data({
+        id: result.$id,
+        error:
+          "Trip created successfully, but payment setup failed. You can still view the trip and retry payment later.",
+      });
+    }
   } catch (e) {
     console.error("Error generating travel plan: ", e);
     if (e instanceof Error) {
@@ -213,21 +228,21 @@ export const action = async ({ request }: ActionFunctionArgs) => {
       if (e.message.includes("GEMINI_API_KEY")) {
         return data(
           { error: "AI service is not configured properly" },
-          { status: 500 }
+          { status: 500 },
         );
       }
 
       if (e.message.includes("UNSPLASH_ACCESS_KEY")) {
         return data(
           { error: "Image service is not configured properly" },
-          { status: 500 }
+          { status: 500 },
         );
       }
 
       if (e.message.includes("Invalid trip data")) {
         return data(
           { error: "Failed to generate valid trip data. Please try again." },
-          { status: 500 }
+          { status: 500 },
         );
       }
 
@@ -237,7 +252,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
       ) {
         return data(
           { error: "Failed to save trip data. Please try again." },
-          { status: 500 }
+          { status: 500 },
         );
       }
 
@@ -247,14 +262,14 @@ export const action = async ({ request }: ActionFunctionArgs) => {
       ) {
         return data(
           { error: "Failed to create payment link. Please try again." },
-          { status: 500 }
+          { status: 500 },
         );
       }
     }
 
     return data(
       { error: "Failed to generate travel plan. Please try again." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 };

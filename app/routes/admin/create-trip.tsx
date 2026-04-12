@@ -401,6 +401,9 @@ const CreateTrip = ({ loaderData }: Route.ComponentProps) => {
       }
 
       if (result?.id) {
+        if (result.error) {
+          console.warn("Trip created with warning:", result.error);
+        }
         console.log("Trip created successfully:", result.id);
         navigate(`/trips/${result.id}`);
       } else {
@@ -414,19 +417,19 @@ const CreateTrip = ({ loaderData }: Route.ComponentProps) => {
           setError("Please sign in again to create a trip.");
         } else if (e.message.includes("AI service")) {
           setError(
-            "Our AI service is temporarily unavailable. Please try again later."
+            "Our AI service is temporarily unavailable. Please try again later.",
           );
         } else if (e.message.includes("Image service")) {
           setError(
-            "Image service unavailable, but we can still create your trip. Please try again."
+            "Image service unavailable, but we can still create your trip. Please try again.",
           );
         } else if (e.message.includes("Failed to save")) {
           setError(
-            "Failed to save your trip. Please check your internet connection and try again."
+            "Failed to save your trip. Please check your internet connection and try again.",
           );
         } else if (e.message.includes("Failed to create payment")) {
           setError(
-            "Trip created but payment setup failed. Please contact support."
+            "Trip created but payment setup failed. Please contact support.",
           );
         } else {
           setError(e.message || "Failed to generate trip. Please try again.");
