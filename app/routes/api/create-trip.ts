@@ -203,7 +203,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
       );
 
       console.log("Trip generation completed successfully:", result.$id);
-      return data({ id: result.$id });
+      return data({ id: result.$id, tripId: result.$id });
     } catch (paymentError) {
       console.error(
         "Payment link setup failed for trip:",
@@ -214,6 +214,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
       // Return the created trip ID even when payment setup fails so the trip flow remains usable.
       return data({
         id: result.$id,
+        tripId: result.$id,
         error:
           "Trip created successfully, but payment setup failed. You can still view the trip and retry payment later.",
       });

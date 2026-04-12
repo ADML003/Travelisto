@@ -394,19 +394,29 @@ const CreateTrip = ({ loaderData }: Route.ComponentProps) => {
         }),
       });
 
-      const result: CreateTripResponse = await response.json();
+      const result: CreateTripResponse & {
+        tripId?: string;
+        data?: { id?: string; tripId?: string };
+      } = await response.json();
 
       if (!response.ok) {
         throw new Error(result.error || `Server error: ${response.status}`);
       }
 
-      if (result?.id) {
+      const createdTripId =
+        result?.id ||
+        result?.tripId ||
+        result?.data?.id ||
+        result?.data?.tripId;
+
+      if (createdTripId) {
         if (result.error) {
           console.warn("Trip created with warning:", result.error);
         }
-        console.log("Trip created successfully:", result.id);
-        navigate(`/trips/${result.id}`);
+        console.log("Trip created successfully:", createdTripId);
+        navigate(`/trips/${createdTripId}`);
       } else {
+        console.error("Unexpected create-trip response payload:", result);
         throw new Error("No trip ID returned from server");
       }
     } catch (e) {
