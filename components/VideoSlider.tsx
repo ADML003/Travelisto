@@ -159,7 +159,7 @@ export const VideoSlider = ({
                 key={slide.id}
                 className={cn(
                   "thumbnail-item",
-                  index === currentSlide && "thumbnail-active"
+                  index === currentSlide && "thumbnail-active",
                 )}
                 onClick={() => goToSlide(index)}
                 aria-label={`Go to ${slide.location} slide`}
@@ -188,7 +188,7 @@ export const VideoSlider = ({
               key={index}
               className={cn(
                 "progress-dot",
-                index === currentSlide && "progress-dot-active"
+                index === currentSlide && "progress-dot-active",
               )}
               onClick={() => goToSlide(index)}
               aria-label={`Go to slide ${index + 1}`}
